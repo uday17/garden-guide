@@ -245,6 +245,9 @@
       if (clear) {
         e.stopPropagation();
         state.plots[Number(clear.dataset.clear)] = null;
+        state.finished = false;
+        els.result.hidden = true;
+        els.result.innerHTML = "";
         sound("click");
         renderPlots();
         say("Pot cleared. Ready for something new.");
@@ -275,6 +278,9 @@
       dead: false
     };
     state.view = state.selectedPlot;
+    state.finished = false;
+    els.result.hidden = true;
+    els.result.innerHTML = "";
     sound("plant");
     renderPlots();
     say(`${plant.name} planted in plot ${state.selectedPlot + 1}. Water now feeds this pot only.`);
@@ -313,7 +319,6 @@
   }
 
   function advance(days, watered) {
-    if (state.finished) { say("All plots have finished. Start a new garden to play again."); return; }
     const p = selectedPlotData();
     if (!p) { say(`Plot ${state.selectedPlot + 1} is empty. Plant something there first.`); return; }
     if (p.day >= TOTAL_DAYS) {
@@ -333,6 +338,10 @@
     renderPlots();
 
     if (allDone()) { finish(); return; }
+    if (p.day >= TOTAL_DAYS) {
+      say(`Plot ${state.selectedPlot + 1} has finished its ${TOTAL_DAYS} days. Pick another plot — it has its own fresh ${TOTAL_DAYS} days.`);
+      return;
+    }
 
     const detail = watered
       ? `Watered${stepped > 1 ? `, then skipped ${stepped - 1} more days` : ""}`
