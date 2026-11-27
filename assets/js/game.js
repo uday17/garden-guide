@@ -43,7 +43,6 @@
     daySub: $("#daySub"),
     hint: $("#gameHint"),
     result: $("#result"),
-    activePlot: $("#activePlotLabel"),
     plantBtn: $("#plantBtn"),
     waterBtn: $("#waterBtn"),
     skipBtn: $("#skipBtn"),
@@ -216,7 +215,6 @@
         </div>`;
     }).join("");
 
-    els.activePlot.textContent = `Plot ${state.selectedPlot + 1} is selected.`;
     els.plantBtn.textContent = `Plant in plot ${state.selectedPlot + 1}`;
     els.waterBtn.textContent = `💧 Water plot ${state.selectedPlot + 1} only`;
     syncDayCounter();
