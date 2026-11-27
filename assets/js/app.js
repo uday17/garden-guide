@@ -31,6 +31,10 @@
 
   const $ = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
+  const esc = (s) =>
+    String(s).replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    })[c]);
 
   /* ---------------- theme ---------------- */
   const root = document.documentElement;
@@ -171,32 +175,44 @@
       const dots = [1, 2, 3]
         .map((i) => `<i class="${i <= p.difficulty ? "on" : ""}"></i>`)
         .join("");
+      const img = window.PLANT_IMAGES && window.PLANT_IMAGES[p.name];
+      const photo = img
+        ? `<div class="plant__photo">
+             <img src="${esc(img.file)}" alt="${esc(p.name)} — ${esc(p.botanical)}"
+                  loading="lazy" width="600" height="375"
+                  title="Photo: ${esc(img.artist)} · ${esc(img.license)}">
+             <span class="plant__glyph" aria-hidden="true">${p.glyph}</span>
+             <a class="plant__credit" href="${esc(img.source)}" target="_blank" rel="noopener noreferrer"
+                title="Photo: ${esc(img.artist)} — ${esc(img.license)}"
+                aria-label="Image source and licence for ${esc(p.name)}">ⓘ</a>
+           </div>`
+        : "";
 
       return `
-        <article class="plant" data-name="${p.name.toLowerCase()}" style="--tint:${p.tint}">
+        <article class="plant" data-name="${esc(p.name.toLowerCase())}" style="--tint:${esc(p.tint)}">
+          ${photo}
           <div class="plant__top">
-            <div class="plant__glyph" aria-hidden="true">${p.glyph}</div>
             <div class="plant__title">
-              <h3>${p.name}</h3>
-              <p class="plant__bot">${p.botanical}</p>
+              <h3>${esc(p.name)}</h3>
+              <p class="plant__bot">${esc(p.botanical)}</p>
             </div>
           </div>
           <div class="plant__body">
-            <span class="pill pill--muted">${p.category}</span>
+            <span class="pill pill--muted">${esc(p.category)}</span>
             <dl class="plant__specs">
-              <div><dt>Light</dt><dd>${p.light}</dd></div>
-              <div><dt>Water</dt><dd>${p.water}</dd></div>
-              <div><dt>Height</dt><dd>${p.height}</dd></div>
+              <div><dt>Light</dt><dd>${esc(p.light)}</dd></div>
+              <div><dt>Water</dt><dd>${esc(p.water)}</dd></div>
+              <div><dt>Height</dt><dd>${esc(p.height)}</dd></div>
               <div><dt>Level</dt><dd><span class="difficulty" data-level="${p.difficulty}" role="img"
-                aria-label="${difficultyLabel(p.difficulty)}"><i></i><i></i><i></i></span>
+                aria-label="${difficultyLabel(p.difficulty)}">${dots}</span>
                 ${difficultyLabel(p.difficulty)}</dd></div>
             </dl>
             <details>
               <summary>Care note</summary>
-              <p>${p.tip}</p>
+              <p>${esc(p.tip)}</p>
             </details>
             <div class="plant__foot">
-              <button class="save-btn" type="button" data-save="${p.name}"
+              <button class="save-btn" type="button" data-save="${esc(p.name)}"
                 aria-pressed="${isSaved(p.name)}">
                 ${isSaved(p.name) ? "✓ In my plan" : "+ Add to my plan"}
               </button>
@@ -318,11 +334,13 @@
       wishlist.innerHTML = names
         .map((name) => {
           const p = (window.PLANTS || []).find((x) => x.name === name);
+          const img = window.PLANT_IMAGES && window.PLANT_IMAGES[name];
           return `<div class="wish">
-            <span aria-hidden="true">${p ? p.glyph : "🌱"}</span>
-            <b>${name}</b>
-            <span class="muted small">${p ? p.category : ""}</span>
-            <button type="button" data-remove="${name}" aria-label="Remove ${name}">×</button>
+            ${img ? `<img class="wish__thumb" src="${esc(img.file)}" alt="" loading="lazy">`
+                  : `<span aria-hidden="true">${p ? p.glyph : "🌱"}</span>`}
+            <b>${esc(name)}</b>
+            <span class="muted small">${esc(p ? p.category : "")}</span>
+            <button type="button" data-remove="${esc(name)}" aria-label="Remove ${esc(name)}">×</button>
           </div>`;
         })
         .join("");

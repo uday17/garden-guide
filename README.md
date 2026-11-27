@@ -26,6 +26,7 @@ framework, no tracking.
 - **Plant library** with live search (`/` shortcut), category chips, indoor/outdoor filter, difficulty
   filter and “add to my plan” shortlist.
 - **Seasonal calendar** with accessible tabs (Spring / Summer / Monsoon / Autumn / Winter).
+- **Plant photographs** — all 55 plants have a local, optimised photo with an inline source/licence link; full attribution in `CREDITS.md`.
 - **Interactive planner** — progress bar, checklists, wishlist and autosaving notes.
 - **Dark / light theme** that respects `prefers-color-scheme` and remembers your choice.
 - **Responsive** from 320 px phones to wide desktops, with a collapsible mobile nav.
@@ -45,11 +46,14 @@ garden-guide/
 ├── advanced.html       # Advanced techniques
 ├── planner.html        # Personal planner
 ├── 404.html
+├── CREDITS.md           # photo sources, authors and licences
 ├── assets/
 │   ├── css/style.css   # Design system + components
+│   ├── images/          # 55 locally stored plant photos (600 px)
 │   └── js/
 │       ├── app.js          # Theme, nav, filters, tabs, planner
-│       └── plants-data.js  # 50+ plant records
+│       ├── plants-data.js  # 55 plant records
+│       └── plant-images.js # photo path + attribution per plant
 └── .github/workflows/deploy.yml
 ```
 
