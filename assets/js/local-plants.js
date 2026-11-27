@@ -11,6 +11,10 @@
   const statusEl = document.getElementById("locatorStatus");
   const resultEl = document.getElementById("locatorResult");
   const searchInput = document.getElementById("locatorQuery");
+  const promptEl = document.getElementById("gpsPrompt");
+  const allowBtn = document.getElementById("gpsAllow");
+  const placeBtn = document.getElementById("gpsPlaceInstead");
+  const dismissBtn = document.getElementById("gpsDismiss");
 
   const esc = (s) =>
     String(s).replace(/[&<>"']/g, (c) => ({
@@ -179,17 +183,50 @@
     }
   }
 
-  function useMyLocation() {
+  function hidePrompt() {
+    if (promptEl) promptEl.hidden = true;
+  }
+
+  function showGpsPrompt() {
     if (!navigator.geolocation) {
-      status("Your browser does not support location. Type a city or landmark instead.");
+      status("Your browser does not support GPS location. Type a city or landmark instead.");
       return;
     }
-    status("Asking your browser for your location…");
+    resultEl.hidden = true;
+    status("");
+    if (promptEl) {
+      promptEl.hidden = false;
+      if (allowBtn) allowBtn.focus();
+    } else {
+      requestGps();
+    }
+  }
+
+  function requestGps() {
+    hidePrompt();
+    status("Waiting for location permission — please allow access in your browser…");
     navigator.geolocation.getCurrentPosition(
-      (pos) => byCoords(pos.coords.latitude, pos.coords.longitude, ""),
-      () => status("Location not available. Type a city or landmark instead."),
-      { enableHighAccuracy: false, timeout: 12000, maximumAge: 600000 }
+      (pos) => {
+        status("Location found — checking the weather…");
+        byCoords(pos.coords.latitude, pos.coords.longitude, "");
+      },
+      (err) => {
+        if (err && err.code === 1) {
+          status("Location permission was blocked. Allow Location in your browser's site settings, then try again — or type a city or landmark.");
+        } else if (err && err.code === 2) {
+          status("Your position is unavailable right now. Try again outdoors, or type a city or landmark.");
+        } else {
+          status("Location request timed out. Try again, or type a city or landmark.");
+        }
+      },
+      { enableHighAccuracy: true, timeout: 15000, maximumAge: 600000 }
     );
+  }
+
+  function usePlaceInstead() {
+    hidePrompt();
+    status("Type a city or landmark above — no location permission needed.");
+    if (searchInput) searchInput.focus();
   }
 
   async function searchPlace() {
@@ -222,7 +259,19 @@
   const searchBtn = document.getElementById("locatorSearch");
   const locateForm = document.getElementById("locatorForm");
 
-  if (locateBtn) locateBtn.addEventListener("click", useMyLocation);
+  if (locateBtn) locateBtn.addEventListener("click", showGpsPrompt);
+  if (allowBtn) allowBtn.addEventListener("click", requestGps);
+  if (placeBtn) placeBtn.addEventListener("click", usePlaceInstead);
+  if (dismissBtn) dismissBtn.addEventListener("click", () => {
+    hidePrompt();
+    status("");
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && promptEl && !promptEl.hidden) {
+      hidePrompt();
+      if (locateBtn) locateBtn.focus();
+    }
+  });
   if (searchBtn) searchBtn.addEventListener("click", searchPlace);
   if (locateForm) {
     locateForm.addEventListener("submit", (e) => {

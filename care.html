@@ -485,7 +485,7 @@
       <h2 id="locator-title" style="margin-bottom:.4rem">What grows in your climate?</h2>
       <p class="small muted mb-0">Share your location — or type a city or landmark — and we'll check the current temperature and suggest plants likely to thrive there. Your location is used only for this lookup.</p>
       <div class="locator__controls">
-        <button class="btn btn--primary" type="button" id="locatorUse">📍 Use my location</button>
+        <button class="btn btn--primary" type="button" id="locatorUse">📍 Use my GPS location</button>
         <form class="locator__field" id="locatorForm">
           <label for="locatorQuery">Or search a city / landmark</label>
           <div style="display:flex;gap:.5rem">
@@ -493,6 +493,19 @@
             <button class="btn btn--ghost" type="submit">Search</button>
           </div>
         </form>
+      </div>
+
+      <div class="gps-prompt" id="gpsPrompt" role="group" aria-labelledby="gpsPromptTitle" hidden>
+        <div class="gps-prompt__icon" aria-hidden="true">📍</div>
+        <div class="gps-prompt__text">
+          <strong id="gpsPromptTitle">Use your GPS location?</strong>
+          <p class="small muted mb-0">Your browser will ask for permission. We use it once to check the temperature near you — your location is never stored or shared.</p>
+        </div>
+        <div class="gps-prompt__actions">
+          <button class="btn btn--primary btn--sm" type="button" id="gpsAllow">Allow GPS</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="gpsPlaceInstead">Type a place instead</button>
+          <button class="btn btn--ghost btn--sm" type="button" id="gpsDismiss">Not now</button>
+        </div>
       </div>
       <p class="doctor__status" id="locatorStatus" role="status" aria-live="polite"></p>
       <div id="locatorResult" hidden></div>
