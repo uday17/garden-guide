@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Garden Game — GrowWell</title>
+<meta name="description" content="A small gardening game: choose a plant, mix the soil, water day by day and see what survives three weeks.">
+<meta name="theme-color" content="#0b1c23">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js");</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/jungle.css">
+<link rel="stylesheet" href="assets/css/game.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='24'>🌵</text></svg>">
+</head>
+<body class="jungle-home">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="header" id="siteHeader">
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="GrowWell home">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3-6 7-6 0 4-3 7-7 6Z"/><path d="M12 12C12 8 9 6 5 6c0 4 3 7 7 6Z"/></svg>
+      </span>
+      <span class="brand__name">Grow<span>Well</span></span>
+    </a>
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="basics.html">Basics</a>
+      <a href="soil.html">Soil</a>
+      <a href="plants.html">Plant Library</a>
+      <a href="care.html">Care</a>
+      <a href="advanced.html">Advanced</a>
+      <a href="planner.html">Planner</a>
+      <a href="garden-game.html" aria-current="page">Game</a>
+    </nav>
+    <div class="header__tools">
+      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Garden game</p>
+    <p class="jungle-note"><span aria-hidden="true">🌿</span> Pick a plant, mix its soil, then see what three weeks of care does.</p>
+    <span class="eyebrow">A little growing experiment</span>
+    <h1>Garden game</h1>
+    <p class="lede">Choose a plant, build a soil mix that suits it, and water day by day. After 21 days, your plants will tell you how you did.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="game-shell">
+
+      <div class="game-toolbar">
+        <div class="game-day" aria-label="Current day">
+          <span>Day</span>
+          <b id="dayCount">0</b>
+          <small>of 21</small>
+        </div>
+        <p class="game-hint" id="gameHint" role="status" aria-live="polite">Pick a plant, mix the soil, then plant it in a pot.</p>
+        <div class="game-actions">
+          <button class="icon-btn sound-toggle" id="soundBtn" type="button" aria-pressed="true" aria-label="Mute sounds" title="Sound on">🔊</button>
+          <button class="btn btn--primary" id="waterBtn" type="button">💧 Water daily</button>
+          <button class="btn btn--ghost" id="skipBtn" type="button">☀️ Skip a day</button>
+          <span class="game-skip">
+            <label class="sr-only" for="skipDays">Number of days to skip</label>
+            <select class="game-select" id="skipDays">
+              <option value="2">2 days</option>
+              <option value="3">3 days</option>
+              <option value="5">5 days</option>
+              <option value="7">7 days</option>
+              <option value="10">10 days</option>
+              <option value="14">14 days</option>
+            </select>
+            <button class="btn btn--ghost" id="skipManyBtn" type="button">⏭ Skip days</button>
+          </span>
+          <button class="btn btn--ghost" id="weekBtn" type="button">⏩ Skip a week</button>
+          <button class="btn btn--ghost btn--sm" id="resetBtn" type="button">↺ New garden</button>
+        </div>
+      </div>
+
+      <div class="game-main">
+        <section class="game-garden" aria-labelledby="gardenTitle">
+          <div class="game-garden__head">
+            <h2 id="gardenTitle">Your garden</h2>
+            <span class="game-pill">Watering affects the selected plot only</span>
+          </div>
+          <div class="plot-tabs" id="plotTabs" role="group" aria-label="Choose which plot to view"></div>
+          <div class="plot-grid" id="plots"></div>
+          <p class="game-footnote">Click a plot above to work on just that pot. “All pots” shows them together. Days advance for every pot, but the watering can only feeds the selected one — thirsty plants need their own turn.</p>
+        </section>
+
+        <div class="game-controls">
+          <section class="game-card" aria-labelledby="plantStep">
+            <span class="game-step">Step 1</span>
+            <h2 id="plantStep">Pick a plant</h2>
+            <div class="plant-picker" id="plantPicker"></div>
+            <p class="plant-tip" id="plantTip" aria-live="polite">Select a plant to see what it likes.</p>
+          </section>
+
+          <section class="game-card" aria-labelledby="soilStep">
+            <span class="game-step">Step 2</span>
+            <h2 id="soilStep">Mix the soil</h2>
+            <div class="soil-mix">
+              <div class="soil-row">
+                <label for="loam">Loam <output id="loamVal">40%</output></label>
+                <input type="range" id="loam" min="0" max="100" step="10" value="40">
+                <small>Holds water and nutrients</small>
+              </div>
+              <div class="soil-row">
+                <label for="compost">Compost <output id="compostVal">30%</output></label>
+                <input type="range" id="compost" min="0" max="100" step="10" value="30">
+                <small>Feeds the plant, keeps moisture</small>
+              </div>
+              <div class="soil-row">
+                <label for="drainage">Drainage <output id="drainageVal">30%</output></label>
+                <input type="range" id="drainage" min="0" max="100" step="10" value="30">
+                <small>Sand or perlite — lets roots breathe</small>
+              </div>
+            </div>
+            <div class="soil-bar" aria-hidden="true">
+              <i class="soil-bar__loam" id="barLoam"></i>
+              <i class="soil-bar__compost" id="barCompost"></i>
+              <i class="soil-bar__drainage" id="barDrainage"></i>
+            </div>
+            <button class="text-btn" id="balancedBtn" type="button">↺ Use a balanced mix (40 / 30 / 30)</button>
+          </section>
+
+          <section class="game-card" aria-labelledby="plantAction">
+            <span class="game-step">Step 3</span>
+            <h2 id="plantAction">Plant it</h2>
+            <p class="game-card__note" id="activePlotLabel">Plot 1 is selected.</p>
+            <button class="btn btn--primary btn--block" id="plantBtn" type="button">Plant in plot 1</button>
+          </section>
+        </div>
+      </div>
+
+      <div class="game-result" id="result" hidden aria-live="polite"></div>
+    </div>
+
+    <div class="game-guide">
+      <h2>What the game is teaching</h2>
+      <div class="game-guide__grid">
+        <div><b>🌱 Right plant</b><p>Thirsty plants (tomato, mint, fern) enjoy daily water. Succulents and cacti need dry spells.</p></div>
+        <div><b>🪴 Right soil</b><p>Compost and loam hold water; sand and perlite drain it. Match the mix to the plant's roots.</p></div>
+        <div><b>💧 Right rhythm</b><p>Too much love drowns roots as surely as too little dries them. Watch the moisture bar.</p></div>
+      </div>
+      <p><a href="soil.html">Read the real soil guide →</a> · <a href="care.html">Learn about watering →</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__bottom">
+      <span>© <span data-year>2026</span> GrowWell. A tiny game for curious gardeners.</span>
+      <a href="index.html">Back to the handbook →</a>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/app.js" defer></script>
+<script src="assets/js/game-audio.js" defer></script>
+<script src="assets/js/game.js" defer></script>
+</body>
+</html>

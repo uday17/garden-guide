@@ -55,15 +55,29 @@ window.STATE_PLANTS = [
       const inSearch = !q || (s.state + " " + s.flower + " " + s.tree).toLowerCase().indexOf(q) !== -1;
       return inRegion && inSearch;
     });
-    grid.innerHTML = list.map((s) => `
+    grid.innerHTML = list.map((s) => {
+      const flowerImg = window.STATE_PLANT_IMAGES && window.STATE_PLANT_IMAGES[s.flower];
+      const treeImg = window.STATE_PLANT_IMAGES && window.STATE_PLANT_IMAGES[s.tree];
+      return `
       <article class="card card--hover">
         <span class="pill ${s.region === "Union territory" ? "pill--sky" : ""}">${esc(s.region)}</span>
         <h3 style="margin-top:.7rem">${esc(s.state)}</h3>
-        <dl class="kv" style="margin-top:.8rem">
-          <div><dt>State flower</dt><dd>${esc(s.flower)}</dd></div>
-          <div><dt>State tree</dt><dd>${esc(s.tree)}</dd></div>
-        </dl>
-      </article>`).join("");
+        <div class="state-pair">
+          <div class="state-plant">
+            <span class="state-plant__label">State flower</span>
+            ${flowerImg ? `<img src="${esc(flowerImg)}" alt="${esc(s.flower)}" loading="lazy">`
+                        : `<span class="state-plant__fallback" aria-hidden="true">🌸</span>`}
+            <b>${esc(s.flower)}</b>
+          </div>
+          <div class="state-plant">
+            <span class="state-plant__label">State tree</span>
+            ${treeImg ? `<img src="${esc(treeImg)}" alt="${esc(s.tree)}" loading="lazy">`
+                      : `<span class="state-plant__fallback" aria-hidden="true">🌳</span>`}
+            <b>${esc(s.tree)}</b>
+          </div>
+        </div>
+      </article>`;
+    }).join("");
     if (count) count.textContent = list.length + " of " + window.STATE_PLANTS.length + " regions";
   }
 
