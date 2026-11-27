@@ -976,6 +976,7 @@ tbody tr:hover { background: color-mix(in srgb, var(--brand-soft) 45%, transpare
   border-bottom-color: rgba(255, 255, 255, .12);
 }
 .header--dark .brand { color: #f1e9d6; }
+.header--dark .brand__name span { color: #a8d9ad; }
 .header--dark .brand__mark { background: linear-gradient(150deg, #4c7d59, #234b32); }
 .header--dark .nav a { color: #b8c3b4; }
 .header--dark .nav a:hover { color: #fff; background: rgba(255, 255, 255, .09); }
@@ -1013,6 +1014,7 @@ tbody tr:hover { background: color-mix(in srgb, var(--brand-soft) 45%, transpare
 .hero--botanical h1 em {
   display: block; font-style: normal; margin-top: .15rem;
   color: #d9c88f; font-size: .68em; letter-spacing: .08em;
+  background: none; padding: 0;
 }
 .hero--botanical .lede {
   color: #bcc8b6; font-size: clamp(.95rem, 1.5vw, 1.06rem);
