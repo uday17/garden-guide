@@ -183,12 +183,8 @@
           <span class="meter">Health<i style="--level:${Math.round(p.health)}%;--meter-color:${p.health > 55 ? "#66b8b0" : "#dda675"}"></i></span>
           <span class="meter">Water<i style="--level:${Math.round(p.moisture)}%;--meter-color:#82c6d0"></i></span>
         </div>` : "";
-      const statusText = planted
-        ? `${p.plant.name}, ${plotStatus(p)}, day ${p.age}, health ${Math.round(p.health)} percent, water ${Math.round(p.moisture)} percent`
-        : "Empty pot, ready for a plant";
-      const label = `Select plot ${i + 1}: ${statusText}`.replace(/"/g, "&quot;");
       return `
-        <div class="plot${active}" data-plot="${i}" role="button" tabindex="0" aria-label="${label}">
+        <div class="plot${active}" data-plot="${i}">
           <span class="plot__name">Plot ${i + 1}</span>
           <span class="plot__stage">
             ${visual}
