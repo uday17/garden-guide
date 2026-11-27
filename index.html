@@ -19,7 +19,7 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="header header--dark" id="siteHeader">
+<header class="header" id="siteHeader">
   <div class="wrap header__inner">
     <a class="brand" href="index.html" aria-label="GrowWell home">
       <span class="brand__mark" aria-hidden="true">
@@ -61,38 +61,83 @@
 <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="hero hero--botanical">
-    <div class="botanical botanical--left" aria-hidden="true">
-      <i class="stem stem--l1"></i>
-      <i class="stem stem--l2"></i>
-      <i class="natural-leaf leaf--l1" style="--leaf-img:url('../images/monstera.jpg')"></i>
-      <i class="natural-leaf leaf--l2" style="--leaf-img:url('../images/philodendron.jpg')"></i>
-      <i class="natural-leaf leaf--l3" style="--leaf-img:url('../images/ficus-weeping-fig.jpg')"></i>
-      <i class="natural-leaf leaf--l4" style="--leaf-img:url('../images/english-ivy.jpg')"></i>
-    </div>
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <span class="eyebrow">The gardening handbook</span>
+        <h1>Grow something <em>worth waking up for.</em></h1>
+        <p class="lede">A complete, jargon-free path from your very first pot to a garden that feeds you.
+          Learn how soil actually works, how much to water, which plants suit your light — and how to keep
+          everything alive through every season.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="basics.html">
+            Start from zero
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn--ghost" href="plants.html">Browse 50+ plants</a>
+        </div>
+        <p class="hero__note">No experience needed · Works for balconies, windowsills and backyards</p>
+        <div class="hero-mini">
+          <span class="pill">🌱 Beginner friendly</span>
+          <span class="pill pill--accent">💧 Watering made simple</span>
+          <span class="pill pill--sky">🌍 Any climate</span>
+        </div>
+      </div>
 
-    <div class="botanical botanical--right" aria-hidden="true">
-      <i class="stem stem--r1"></i>
-      <i class="stem stem--r2"></i>
-      <i class="natural-leaf leaf--r1" style="--leaf-img:url('../images/monstera.jpg')"></i>
-      <i class="natural-leaf leaf--r2" style="--leaf-img:url('../images/philodendron.jpg')"></i>
-      <i class="natural-leaf leaf--r3" style="--leaf-img:url('../images/ficus-weeping-fig.jpg')"></i>
-      <i class="natural-leaf leaf--r4" style="--leaf-img:url('../images/english-ivy.jpg')"></i>
-    </div>
+      <div class="hero__art" aria-hidden="true">
+        <svg viewBox="0 0 480 400" role="presentation">
+          <defs>
+            <linearGradient id="pot" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#d9854f"/><stop offset="1" stop-color="#b45f31"/>
+            </linearGradient>
+            <linearGradient id="leaf" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#2f6b46"/><stop offset="1" stop-color="#67b37f"/>
+            </linearGradient>
+            <linearGradient id="leaf2" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0" stop-color="#245237"/><stop offset="1" stop-color="#4c9a6a"/>
+            </linearGradient>
+            <linearGradient id="soil" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#5a3f2b"/><stop offset="1" stop-color="#3c2a1d"/>
+            </linearGradient>
+          </defs>
 
-    <div class="wrap hero__inner">
-      <span class="eyebrow">Welcome to our garden</span>
-      <h1>Grow Well</h1>
-      <p class="lede">From the first pot on a windowsill to a garden that feeds you — soil, light, watering and every plant you choose, explained simply.</p>
-      <div class="hero__actions">
-        <a class="btn btn--outline" href="basics.html">Start gardening</a>
-        <a class="btn btn--outline" href="plants.html">Explore plants</a>
+          <circle cx="372" cy="78" r="42" fill="#f4cd77" opacity=".85"/>
+          <circle cx="372" cy="78" r="58" fill="#f4cd77" opacity=".18"/>
+
+          <path d="M60 330c40-30 90-34 130-14 34 17 66 18 100 4 40-16 78-12 130 16v64H60Z" fill="#c9e4c9" opacity=".75"/>
+
+          <path d="M240 258c0-52 4-92 2-128" stroke="#2f6b46" stroke-width="7" fill="none" stroke-linecap="round"/>
+          <path d="M242 196c-2-26-16-40-42-44 2 26 16 42 42 44Z" fill="url(#leaf2)"/>
+          <path d="M242 168c2-30 18-46 48-50-2 30-18 48-48 50Z" fill="url(#leaf)"/>
+          <path d="M241 132c-2-24-14-38-36-42 2 24 14 38 36 42Z" fill="url(#leaf)"/>
+          <path d="M242 108c2-22 14-34 34-36-1 22-13 34-34 36Z" fill="url(#leaf2)"/>
+
+          <path d="M148 252h184l-20 104a14 14 0 0 1-14 12H182a14 14 0 0 1-14-12Z" fill="url(#pot)"/>
+          <rect x="138" y="236" width="204" height="26" rx="10" fill="#c4713f"/>
+          <ellipse cx="240" cy="250" rx="82" ry="14" fill="url(#soil)"/>
+          <ellipse cx="240" cy="246" rx="82" ry="12" fill="#4a3423"/>
+
+          <g fill="#ffffff" opacity=".9">
+            <circle cx="196" cy="292" r="3"/><circle cx="228" cy="312" r="2.5"/><circle cx="272" cy="300" r="3"/>
+            <circle cx="300" cy="278" r="2"/><circle cx="212" cy="330" r="2"/>
+          </g>
+
+          <g stroke="#7fb98f" stroke-width="3" stroke-linecap="round" opacity=".9">
+            <path d="M96 300c0-18 10-28 26-30"/><path d="M96 300c-2-16-12-24-26-24"/>
+            <path d="M384 262c0-16 8-24 22-26"/><path d="M384 262c-2-14-10-20-22-20"/>
+          </g>
+        </svg>
+
+        <div class="hero__badge hero__badge--a">
+          <span class="dot">☀️</span>
+          <span><b>Light check</b>6 h of sun</span>
+        </div>
+        <div class="hero__badge hero__badge--b">
+          <span class="dot">💧</span>
+          <span><b>Watering</b>2× per week</span>
+        </div>
       </div>
     </div>
-
-    <p class="botanical__footer">A handbook for every season · Beginner to advanced
-      <b>GrowWell — Rooted in knowledge</b>
-    </p>
   </section>
 
   <!-- ================= STATS ================= -->
