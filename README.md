@@ -16,6 +16,7 @@ framework, no tracking.
 | `basics.html` | Light, water, pots and tools, potting your first plant, first four weeks, climate zones, glossary |
 | `soil.html` | Texture, six ground soils with %, pH, compost, **9 potting media with indoor/outdoor percentages**, mixes and amendments |
 | `plants.html` | Filterable library of **50+ plants** — indoor, climbers & creepers, succulents, herbs, vegetables, flowers, fruit, trees & shrubs |
+| `india-states.html` | State flower and state tree of all 28 Indian states and 8 union territories, searchable by region |
 | `care.html` | Watering masterclass, feeding (NPK), pruning techniques, repotting, pest & disease table, five-season calendar, symptom-based troubleshooting |
 | `advanced.html` | Propagation, pruning as design, integrated pest management, soil food web, watering systems, growing under cover, hydroponics, record keeping |
 | `planner.html` | Saved task checklist, plant shortlist and notes (all stored in `localStorage`) |
@@ -45,6 +46,7 @@ garden-guide/
 ├── basics.html         # Beginner guide
 ├── soil.html           # Soil & compost
 ├── plants.html         # Filterable plant library
+├── india-states.html   # State flowers & trees of India
 ├── care.html           # Ongoing care & seasons
 ├── advanced.html       # Advanced techniques
 ├── planner.html        # Personal planner
