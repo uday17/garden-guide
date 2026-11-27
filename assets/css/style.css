@@ -380,6 +380,12 @@ strong { font-weight: 650; color: var(--ink); }
   width: 200px; height: 200px; border-radius: 50%;
   background: radial-gradient(circle, color-mix(in srgb, var(--brand) 16%, transparent), transparent 70%);
 }
+.path__photo {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: 12px; border: 1px solid var(--line);
+  background: var(--bg-tint);
+}
+.path:hover .path__photo { border-color: color-mix(in srgb, var(--brand) 35%, var(--line)); }
 .path:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--brand) 40%, var(--line)); }
 .path__level { font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent-ink); }
 .path h3 { margin: 0; }
