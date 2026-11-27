@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GrowWell — Garden Game sounds
+   Gardening — Garden Game sounds
    Tiny Web Audio effects; no audio files or network requests needed.
    ========================================================================== */
 window.GameSound = (function () {

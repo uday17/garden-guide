@@ -103,10 +103,11 @@ body.jungle-home a { color: var(--brand-ink); }
   color: #e6f5f1;
 }
 .jungle-home .jungle-header .brand__name span { color: #e6f5f1; }
-.jungle-home .jungle-header .nav { gap: .1rem; }
+.jungle-home .jungle-header .nav { gap: .1rem; flex-wrap: wrap; justify-content: flex-end; }
 .jungle-home .jungle-header .nav a {
   min-height: 34px;
-  padding: .35rem .6rem;
+  padding: .35rem .55rem;
+  white-space: nowrap;
   border-radius: 999px;
   font-size: .78rem;
   font-weight: 550;
@@ -340,7 +341,8 @@ body.jungle-home > .header .brand__name {
   color: #e6f5f1;
 }
 body.jungle-home > .header .brand__name span { color: #e6f5f1; }
-body.jungle-home > .header .nav a { color: #c6e0dd; }
+body.jungle-home > .header .nav { flex-wrap: wrap; row-gap: 0; }
+body.jungle-home > .header .nav a { color: #c6e0dd; padding-inline: .5rem; white-space: nowrap; }
 body.jungle-home > .header .nav a:hover { color: #fff; background: rgba(255, 255, 255, .1); }
 body.jungle-home > .header .nav a[aria-current="page"] {
   color: #fff;

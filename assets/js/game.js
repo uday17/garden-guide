@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GrowWell — Garden Game
+   Gardening — Garden Game
    Pick a plant, mix soil, water day by day, see who survives 21 days.
    ========================================================================== */
 (function () {
@@ -183,8 +183,9 @@
           <span class="meter">Health<i style="--level:${Math.round(p.health)}%;--meter-color:${p.health > 55 ? "#66b8b0" : "#dda675"}"></i></span>
           <span class="meter">Water<i style="--level:${Math.round(p.moisture)}%;--meter-color:#82c6d0"></i></span>
         </div>` : "";
+      const label = `Select plot ${i + 1}: ${planted ? `${p.plant.name}, ${plotStatus(p)}, day ${p.age}` : "empty pot"}`.replace(/"/g, "&quot;");
       return `
-        <div class="plot${active}" data-plot="${i}" role="button" tabindex="0" aria-label="Select plot ${i + 1}">
+        <div class="plot${active}" data-plot="${i}" role="button" tabindex="0" aria-label="${label}">
           <span class="plot__name">Plot ${i + 1}</span>
           <span class="plot__stage">
             ${visual}
