@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Plant Library — 50+ Indoor, Outdoor, Climber &amp; Edible Plants | GrowWell</title>
+<meta name="description" content="Browse a filterable library of 50+ plants: houseplants, succulents, climbers and creepers, herbs, vegetables, flowers, fruit and shrubs — with light, water and care notes.">
+<meta name="theme-color" content="#fbf8f1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><text y='25' font-size='24'>🌱</text></svg>">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="header" id="siteHeader">
+  <div class="wrap header__inner">
+    <a class="brand" href="index.html" aria-label="GrowWell home">
+      <span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3-6 7-6 0 4-3 7-7 6Z"/><path d="M12 12C12 8 9 6 5 6c0 4 3 7 7 6Z"/></svg></span>
+      <span class="brand__name">Grow<span>Well</span></span>
+    </a>
+    <nav class="nav" id="siteNav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="basics.html">Basics</a>
+      <a href="soil.html">Soil</a>
+      <a href="plants.html" aria-current="page">Plant Library</a>
+      <a href="care.html">Care</a>
+      <a href="advanced.html">Advanced</a>
+      <a href="planner.html">Planner</a>
+    </nav>
+    <div class="header__tools">
+      <button class="icon-btn theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A8.5 8.5 0 1 1 11.2 3a6.6 6.6 0 0 0 9.8 9.8Z"/></svg>
+      </button>
+      <button class="icon-btn nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="siteNav" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-head">
+  <div class="wrap">
+    <p class="breadcrumb"><a href="index.html">Home</a> / Plant library</p>
+    <span class="eyebrow">Reference · 50+ plants</span>
+    <h1>Find your plant</h1>
+    <p class="lede">Filter by where you will grow it, how much sun you have, and how much fuss you want.
+      Every entry lists real light, water and height requirements plus a practical care note.</p>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="wrap">
+    <div class="grid grid--3">
+      <div class="card">
+        <h3 style="margin-bottom:.3rem">Match the light first</h3>
+        <p class="small muted mb-0">A plant in the wrong light will never thrive, no matter how well you water it.
+          Use the “Light” line on each card and compare it with your space.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:.3rem">Be honest about time</h3>
+        <p class="small muted mb-0">Succulents and snake plants forgive a fortnight of neglect. Ferns and roses do not.
+          The level dots show how demanding each plant really is.</p>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:.3rem">Save what you like</h3>
+        <p class="small muted mb-0">Tap “Add to my plan” to build a shortlist. It is stored in your browser and appears
+          on the <a href="planner.html">planner page</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+
+    <div class="filterbar" role="search">
+      <div class="filterbar__row">
+        <div class="field">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <label class="sr-only" for="plantSearch" style="position:absolute;left:-9999px">Search plants</label>
+          <input class="input" id="plantSearch" type="search" placeholder="Search by name, e.g. “jasmine” or “easy”" autocomplete="off">
+        </div>
+        <label class="sr-only" for="difficultyFilter" style="position:absolute;left:-9999px">Filter by difficulty</label>
+        <select class="select" id="difficultyFilter">
+          <option value="all">Any difficulty</option>
+          <option value="1">Easy — forgiving</option>
+          <option value="2">Moderate</option>
+          <option value="3">Demanding</option>
+        </select>
+        <span class="result-count" id="resultCount" aria-live="polite">Loading…</span>
+      </div>
+
+      <div class="filterbar__row">
+        <span class="small muted" style="min-width:70px">Where</span>
+        <div class="chips" role="group" aria-label="Growing setting">
+          <button class="chip" type="button" data-where="all" aria-pressed="true">Anywhere</button>
+          <button class="chip" type="button" data-where="indoor" aria-pressed="false">🏠 Indoors</button>
+          <button class="chip" type="button" data-where="outdoor" aria-pressed="false">🌤 Outdoors</button>
+        </div>
+      </div>
+
+      <div class="filterbar__row">
+        <span class="small muted" style="min-width:70px">Type</span>
+        <div class="chips" role="group" aria-label="Plant category">
+          <button class="chip" type="button" data-cat="All" aria-pressed="true">All</button>
+          <button class="chip" type="button" data-cat="Indoor" aria-pressed="false">Indoor</button>
+          <button class="chip" type="button" data-cat="Climbers &amp; Creepers" aria-pressed="false">Climbers &amp; creepers</button>
+          <button class="chip" type="button" data-cat="Succulents &amp; Cacti" aria-pressed="false">Succulents &amp; cacti</button>
+          <button class="chip" type="button" data-cat="Herbs" aria-pressed="false">Herbs</button>
+          <button class="chip" type="button" data-cat="Vegetables" aria-pressed="false">Vegetables</button>
+          <button class="chip" type="button" data-cat="Flowers" aria-pressed="false">Flowers</button>
+          <button class="chip" type="button" data-cat="Fruit" aria-pressed="false">Fruit</button>
+          <button class="chip" type="button" data-cat="Trees &amp; Shrubs" aria-pressed="false">Trees &amp; shrubs</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="small muted" style="margin-top:1rem">
+      Tip: press <kbd style="border:1px solid var(--line);border-radius:4px;padding:.05rem .35rem;background:var(--surface)">/</kbd>
+      to jump to search. All plants are grouped by type, not by climate — always check your local hardiness zone before planting outdoors.
+    </p>
+
+    <div class="plant-grid" id="plantGrid" style="margin-top:1.25rem">
+      <noscript>
+        <p class="empty">The filterable library needs JavaScript. You can still browse the
+          <a href="index.html#paths">learning paths</a> and the <a href="care.html">care guides</a> without it.</p>
+      </noscript>
+    </div>
+
+    <div class="empty" id="plantEmpty" hidden>
+      <h3 style="margin-bottom:.3rem">No plants match those filters</h3>
+      <p class="mb-0">Try clearing the search box, choosing “Any difficulty”, or selecting a different type.</p>
+    </div>
+
+    <div class="callout callout--warn" style="margin-top:2rem">
+      <span class="callout__icon" aria-hidden="true">🐾</span>
+      <div><p><strong>Pet and child safety.</strong> Many popular houseplants are toxic if chewed — pothos, philodendron,
+        peace lily, snake plant and ZZ plant among them. Check each species before bringing it into a home with pets or toddlers.</p></div>
+    </div>
+
+    <div class="grid grid--2" style="margin-top:2.5rem">
+      <div class="card">
+        <span class="pill">Indoor growing</span>
+        <h3 style="margin-top:.7rem">Making a room plant-friendly</h3>
+        <p class="small muted">Group plants to raise humidity, keep them out of draughts and radiators, and rotate pots a
+          quarter turn weekly so they grow evenly. In winter, move them closer to the window and water far less.</p>
+        <a class="small" href="care.html#water">Watering and light indoors →</a>
+      </div>
+      <div class="card">
+        <span class="pill pill--accent">Outdoor growing</span>
+        <h3 style="margin-top:.7rem">Balconies, beds and walls</h3>
+        <p class="small muted">Outdoor plants face wind, rain and temperature swings. Use larger pots for stability,
+          mulch the surface, and choose climbers for vertical space — a railing can hold three times the plants of a floor.</p>
+        <a class="small" href="care.html#calendar">Seasonal outdoor calendar →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="19" height="19" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21v-7"/><path d="M12 14c0-4 3-6 7-6 0 4-3 7-7 6Z"/><path d="M12 12C12 8 9 6 5 6c0 4 3 7 7 6Z"/></svg></span><span class="brand__name">Grow<span>Well</span></span></a>
+        <p class="footer__blurb">A free, practical gardening handbook. Written for real spaces, real climates and real schedules.</p>
+      </div>
+      <div><h4>Learn</h4><ul><li><a href="basics.html">Gardening basics</a></li><li><a href="soil.html">Soil &amp; compost</a></li><li><a href="care.html">Watering &amp; feeding</a></li><li><a href="advanced.html">Advanced techniques</a></li></ul></div>
+      <div><h4>Reference</h4><ul><li><a href="plants.html">Plant library</a></li><li><a href="care.html#calendar">Seasonal calendar</a></li><li><a href="care.html#troubleshooting">Problem solver</a></li><li><a href="basics.html#glossary">Glossary</a></li></ul></div>
+      <div><h4>This project</h4><ul><li><a href="https://github.com/uday17/garden-guide">Source on GitHub</a></li><li><a href="planner.html">Garden planner</a></li><li><a href="index.html#paths">Learning paths</a></li></ul></div>
+    </div>
+    <div class="footer__bottom"><span>© <span data-year>2026</span> GrowWell. Built as an open educational project.</span><span>Made with soil under the fingernails.</span></div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+<script src="assets/js/plants-data.js" defer></script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>

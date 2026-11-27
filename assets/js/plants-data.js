@@ -1,0 +1,697 @@
+/* GrowWell plant library data
+   difficulty: 1 = easy, 2 = moderate, 3 = demanding
+   light / water / height are short human-readable strings. */
+window.PLANTS = [
+  /* ---------------- Indoor ---------------- */
+  {
+    name: "Snake Plant",
+    botanical: "Dracaena trifasciata",
+    category: "Indoor",
+    difficulty: 1,
+    light: "Low to bright indirect",
+    water: "Every 2–3 weeks",
+    height: "60–120 cm",
+    glyph: "🌿",
+    tint: "#dcefdc",
+    tip: "The most forgiving houseplant there is. Let the soil dry completely, and never let water sit in the saucer — soggy roots are the only way to kill it."
+  },
+  {
+    name: "Golden Pothos",
+    botanical: "Epipremnum aureum",
+    category: "Indoor",
+    difficulty: 1,
+    light: "Medium to bright indirect",
+    water: "Weekly, when top 3 cm is dry",
+    height: "Trails 2–3 m",
+    glyph: "🍃",
+    tint: "#d9efd4",
+    tip: "Pinch off the growing tips to keep it bushy, or let it trail. Cuttings root in a glass of water in about two weeks."
+  },
+  {
+    name: "ZZ Plant",
+    botanical: "Zamioculcas zamiifolia",
+    category: "Indoor",
+    difficulty: 1,
+    light: "Low to medium indirect",
+    water: "Every 3–4 weeks",
+    height: "60–90 cm",
+    glyph: "🌱",
+    tint: "#e3f0d8",
+    tip: "Stores water in thick rhizomes, so drought is fine and overwatering is fatal. Perfect for dark corners and forgetful owners."
+  },
+  {
+    name: "Peace Lily",
+    botanical: "Spathiphyllum wallisii",
+    category: "Indoor",
+    difficulty: 2,
+    light: "Medium indirect, no direct sun",
+    water: "Twice weekly in summer",
+    height: "40–90 cm",
+    glyph: "🌼",
+    tint: "#e8f3e2",
+    tip: "Droops dramatically when thirsty and recovers within hours of watering — a living water gauge. Brown leaf tips mean tap water minerals; switch to filtered."
+  },
+  {
+    name: "Spider Plant",
+    botanical: "Chlorophytum comosum",
+    category: "Indoor",
+    difficulty: 1,
+    light: "Bright indirect",
+    water: "Weekly",
+    height: "30–60 cm",
+    glyph: "🕸️",
+    tint: "#e2f1dc",
+    tip: "Produces baby plantlets on runners — snip and pot them for free plants. Sensitive to fluoride, so rainwater is best."
+  },
+  {
+    name: "Monstera",
+    botanical: "Monstera deliciosa",
+    category: "Indoor",
+    difficulty: 2,
+    light: "Bright indirect, some morning sun",
+    water: "Weekly, when top 5 cm is dry",
+    height: "1.5–3 m",
+    glyph: "🌴",
+    tint: "#d6ecd2",
+    tip: "The leaf holes (fenestrations) develop with good light. Give it a moss pole and wipe leaves monthly so it can breathe."
+  },
+  {
+    name: "Rubber Plant",
+    botanical: "Ficus elastica",
+    category: "Indoor",
+    difficulty: 2,
+    light: "Bright indirect",
+    water: "Every 7–10 days",
+    height: "1–2.5 m",
+    glyph: "🌳",
+    tint: "#dbe8d6",
+    tip: "Hates being moved and cold draughts. Rotate the pot a quarter turn each week for even growth, and dust the glossy leaves."
+  },
+  {
+    name: "Boston Fern",
+    botanical: "Nephrolepis exaltata",
+    category: "Indoor",
+    difficulty: 3,
+    light: "Medium indirect, humid",
+    water: "Keep evenly moist",
+    height: "40–80 cm",
+    glyph: "🌾",
+    tint: "#dff0e0",
+    tip: "Wants bathroom-level humidity. Stand the pot on pebbles in a water tray and mist in dry weather; never let it dry out completely."
+  },
+  {
+    name: "Philodendron",
+    botanical: "Philodendron hederaceum",
+    category: "Indoor",
+    difficulty: 1,
+    light: "Medium to bright indirect",
+    water: "Weekly",
+    height: "Trails 1–2 m",
+    glyph: "💚",
+    tint: "#d8eed7",
+    tip: "Nearly indestructible. Trim leggy stems back to a node and it will branch. All parts are toxic to pets."
+  },
+  {
+    name: "Chinese Evergreen",
+    botanical: "Aglaonema commutatum",
+    category: "Indoor",
+    difficulty: 1,
+    light: "Low to medium indirect",
+    water: "Every 7–10 days",
+    height: "40–75 cm",
+    glyph: "🌿",
+    tint: "#e6f0dd",
+    tip: "Grown for patterned foliage that stays colourful in shade. Keep away from air-conditioning vents to avoid leaf drop."
+  },
+
+  /* ---------------- Succulents & Cacti ---------------- */
+  {
+    name: "Aloe Vera",
+    botanical: "Aloe barbadensis miller",
+    category: "Succulents & Cacti",
+    difficulty: 1,
+    light: "Bright, 4–6 h direct sun",
+    water: "Every 3 weeks",
+    height: "30–60 cm",
+    glyph: "🪷",
+    tint: "#e0efd3",
+    tip: "Water deeply then let it dry out entirely. The gel inside a mature leaf soothes minor burns — cut from the outside in."
+  },
+  {
+    name: "Echeveria",
+    botanical: "Echeveria elegans",
+    category: "Succulents & Cacti",
+    difficulty: 2,
+    light: "Full sun to bright light",
+    water: "Every 2–3 weeks",
+    height: "10–20 cm",
+    glyph: "🌸",
+    tint: "#efe6dd",
+    tip: "Rosettes stretch (etiolate) fast in low light. Water the soil, never the crown, and use a gritty mix with 50% pumice."
+  },
+  {
+    name: "Jade Plant",
+    botanical: "Crassula ovata",
+    category: "Succulents & Cacti",
+    difficulty: 1,
+    light: "Bright, 4 h direct sun",
+    water: "Every 2–3 weeks",
+    height: "60–150 cm",
+    glyph: "🌳",
+    tint: "#dcecd6",
+    tip: "A miniature tree that can live for decades. Reduce watering to once a month in winter and it may reward you with starry white flowers."
+  },
+  {
+    name: "Zebra Haworthia",
+    botanical: "Haworthiopsis fasciata",
+    category: "Succulents & Cacti",
+    difficulty: 1,
+    light: "Bright indirect",
+    water: "Every 2–3 weeks",
+    height: "10–15 cm",
+    glyph: "🦓",
+    tint: "#e6efe0",
+    tip: "One of the few succulents happy on a shaded desk. Offsets (pups) appear at the base — split them in spring to multiply."
+  },
+  {
+    name: "Christmas Cactus",
+    botanical: "Schlumbergera buckleyi",
+    category: "Succulents & Cacti",
+    difficulty: 2,
+    light: "Bright indirect",
+    water: "Weekly in growth, monthly in rest",
+    height: "30 cm",
+    glyph: "🌺",
+    tint: "#f2e3e6",
+    tip: "Needs 6–8 weeks of cool nights (12–15 °C) and long darkness in autumn to set buds. Don't move it once buds appear."
+  },
+  {
+    name: "Burro's Tail",
+    botanical: "Sedum morganianum",
+    category: "Succulents & Cacti",
+    difficulty: 2,
+    light: "Bright, some direct sun",
+    water: "Every 2–3 weeks",
+    height: "Trails 60 cm",
+    glyph: "🐴",
+    tint: "#e4efdc",
+    tip: "Handle as little as possible — the plump leaves drop at a touch. Hang it high and let the braids cascade."
+  },
+
+  /* ---------------- Climbers & Creepers ---------------- */
+  {
+    name: "Bougainvillea",
+    botanical: "Bougainvillea glabra",
+    category: "Climbers & Creepers",
+    difficulty: 2,
+    light: "Full sun, 6+ h",
+    water: "Deeply every 10–14 days",
+    height: "Climbs 4–10 m",
+    glyph: "🌺",
+    tint: "#f7dfe3",
+    tip: "Flowers best when slightly stressed. Let it dry between waterings and avoid high-nitrogen feed, which grows leaves instead of bracts."
+  },
+  {
+    name: "Star Jasmine",
+    botanical: "Trachelospermum jasminoides",
+    category: "Climbers & Creepers",
+    difficulty: 2,
+    light: "Full sun to part shade",
+    water: "Weekly",
+    height: "Climbs 3–6 m",
+    glyph: "🤍",
+    tint: "#eaf0e2",
+    tip: "Tie young shoots to the support — it twines only loosely. Prune right after flowering, because next year's blooms form on old wood."
+  },
+  {
+    name: "Rangoon Creeper",
+    botanical: "Combretum indicum",
+    category: "Climbers & Creepers",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Twice weekly in summer",
+    height: "Climbs 6–10 m",
+    glyph: "💮",
+    tint: "#f8e4e6",
+    tip: "Fragrant flowers open white and fade to red on the same cluster. Give it a strong pergola — it becomes heavy and woody with age."
+  },
+  {
+    name: "Clematis",
+    botanical: "Clematis montana",
+    category: "Climbers & Creepers",
+    difficulty: 3,
+    light: "Sun on top, shade at roots",
+    water: "Weekly, keep roots cool",
+    height: "Climbs 3–8 m",
+    glyph: "💜",
+    tint: "#e9e2f2",
+    tip: "Pruning rules depend on the group: spring bloomers are pruned after flowering, late-summer types in early spring. Mulch the root zone."
+  },
+  {
+    name: "Passionflower",
+    botanical: "Passiflora caerulea",
+    category: "Climbers & Creepers",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Weekly",
+    height: "Climbs 4–8 m",
+    glyph: "🔯",
+    tint: "#e3e9f4",
+    tip: "Climbs with tendrils, so give it wire or netting. Fast and vigorous — cut back hard in late winter to keep it in bounds."
+  },
+  {
+    name: "Morning Glory",
+    botanical: "Ipomoea purpurea",
+    category: "Climbers & Creepers",
+    difficulty: 1,
+    light: "Full sun",
+    water: "Daily in hot weather",
+    height: "Climbs 2–4 m",
+    glyph: "🌅",
+    tint: "#e4e9f6",
+    tip: "Grow from seed directly at the base of a trellis — it resents transplanting. Flowers open at dawn and close by afternoon."
+  },
+  {
+    name: "English Ivy",
+    botanical: "Hedera helix",
+    category: "Climbers & Creepers",
+    difficulty: 1,
+    light: "Shade to part sun",
+    water: "Weekly",
+    height: "Climbs 10–20 m",
+    glyph: "🍀",
+    tint: "#dcead9",
+    tip: "A superb evergreen wall cover, but keep it off timber and gutters. Check local rules — it is invasive in some regions."
+  },
+  {
+    name: "Wisteria",
+    botanical: "Wisteria sinensis",
+    category: "Climbers & Creepers",
+    difficulty: 3,
+    light: "Full sun",
+    water: "Weekly, deeply",
+    height: "Climbs 10–20 m",
+    glyph: "🪻",
+    tint: "#e6e2f4",
+    tip: "Prune twice a year — long whips in summer, back to two buds in winter. Needs very sturdy steel support; never grow it on a house wall."
+  },
+
+  /* ---------------- Herbs ---------------- */
+  {
+    name: "Basil",
+    botanical: "Ocimum basilicum",
+    category: "Herbs",
+    difficulty: 1,
+    light: "Full sun, 5–6 h",
+    water: "Daily in summer",
+    height: "30–60 cm",
+    glyph: "🌿",
+    tint: "#dcefdc",
+    tip: "Pinch out flower buds the moment they form to keep leaves sweet. Harvest from the top, never strip a whole stem."
+  },
+  {
+    name: "Mint",
+    botanical: "Mentha spicata",
+    category: "Herbs",
+    difficulty: 1,
+    light: "Part shade to sun",
+    water: "Keep moist",
+    height: "30–90 cm",
+    glyph: "🍃",
+    tint: "#d9efd9",
+    tip: "Always grow it in a pot — runners spread aggressively. One pot can supply a household all year with regular harvesting."
+  },
+  {
+    name: "Rosemary",
+    botanical: "Salvia rosmarinus",
+    category: "Herbs",
+    difficulty: 2,
+    light: "Full sun, 6 h",
+    water: "Every 7–10 days, well drained",
+    height: "60–150 cm",
+    glyph: "🌲",
+    tint: "#e0ebdc",
+    tip: "Mediterranean at heart: sandy soil, plenty of sun, and never wet feet. Harvest in the morning when oils are strongest."
+  },
+  {
+    name: "Thyme",
+    botanical: "Thymus vulgaris",
+    category: "Herbs",
+    difficulty: 1,
+    light: "Full sun",
+    water: "Every 10–14 days",
+    height: "15–30 cm",
+    glyph: "🌱",
+    tint: "#e3eddd",
+    tip: "Thrives on neglect and poor soil — rich compost makes it floppy and bland. Trim after flowering to keep it compact."
+  },
+  {
+    name: "Coriander",
+    botanical: "Coriandrum sativum",
+    category: "Herbs",
+    difficulty: 1,
+    light: "Part sun",
+    water: "Every 2–3 days",
+    height: "30–60 cm",
+    glyph: "🌿",
+    tint: "#e0efdb",
+    tip: "Bolts in heat. Sow a small pinch every three weeks for a continuous supply, and let one plant flower for pollinators."
+  },
+  {
+    name: "Curry Leaf",
+    botanical: "Murraya koenigii",
+    category: "Herbs",
+    difficulty: 2,
+    light: "Full sun to bright indirect",
+    water: "Twice weekly",
+    height: "1–3 m",
+    glyph: "🌳",
+    tint: "#dcedd6",
+    tip: "Needs warmth and good drainage. Pick leaflets from the tips and it will branch into a dense, harvestable shrub."
+  },
+  {
+    name: "Oregano",
+    botanical: "Origanum vulgare",
+    category: "Herbs",
+    difficulty: 1,
+    light: "Full sun",
+    water: "Every 10 days",
+    height: "30–60 cm",
+    glyph: "🌾",
+    tint: "#e4eddc",
+    tip: "Flavour intensifies in dry, sunny conditions. Cut it back by half after flowering for a fresh flush of leaves."
+  },
+  {
+    name: "Lavender",
+    botanical: "Lavandula angustifolia",
+    category: "Herbs",
+    difficulty: 2,
+    light: "Full sun, 6+ h",
+    water: "Every 10–14 days",
+    height: "40–90 cm",
+    glyph: "💜",
+    tint: "#e9e3f2",
+    tip: "Gritty, alkaline soil and sharp drainage are essential. Prune lightly after flowering but never cut into old bare wood."
+  },
+
+  /* ---------------- Vegetables ---------------- */
+  {
+    name: "Tomato",
+    botanical: "Solanum lycopersicum",
+    category: "Vegetables",
+    difficulty: 2,
+    light: "Full sun, 6–8 h",
+    water: "Deeply every 2–3 days",
+    height: "60–180 cm",
+    glyph: "🍅",
+    tint: "#f8e3dd",
+    tip: "Water at the base, consistently — irregular watering causes split fruit and blossom-end rot. Stake early and pinch side shoots on cordon types."
+  },
+  {
+    name: "Chilli",
+    botanical: "Capsicum annuum",
+    category: "Vegetables",
+    difficulty: 1,
+    light: "Full sun",
+    water: "Every 2–3 days",
+    height: "45–90 cm",
+    glyph: "🌶️",
+    tint: "#f8dedb",
+    tip: "Slight water stress at fruiting time increases pungency. Move pots under cover before the first frost to extend the harvest."
+  },
+  {
+    name: "Spinach",
+    botanical: "Spinacia oleracea",
+    category: "Vegetables",
+    difficulty: 1,
+    light: "Part shade",
+    water: "Keep moist",
+    height: "20–30 cm",
+    glyph: "🥬",
+    tint: "#dcefdc",
+    tip: "A cool-season crop — sow in early spring and autumn. Harvest outer leaves so the plant keeps producing for weeks."
+  },
+  {
+    name: "Lettuce",
+    botanical: "Lactuca sativa",
+    category: "Vegetables",
+    difficulty: 1,
+    light: "Part sun",
+    water: "Every 2 days",
+    height: "15–30 cm",
+    glyph: "🥗",
+    tint: "#e0f0d8",
+    tip: "Shallow roots dry out fast, so mulch and water little and often. Cut-and-come-again varieties give three or four harvests."
+  },
+  {
+    name: "Carrot",
+    botanical: "Daucus carota",
+    category: "Vegetables",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Every 3–4 days",
+    height: "20–30 cm",
+    glyph: "🥕",
+    tint: "#f8e6d6",
+    tip: "Needs loose, stone-free soil at least 25 cm deep, or roots fork. Thin seedlings to 5 cm apart — crowding stunts them."
+  },
+  {
+    name: "Cucumber",
+    botanical: "Cucumis sativus",
+    category: "Vegetables",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Daily in summer",
+    height: "Vines 1.5–2 m",
+    glyph: "🥒",
+    tint: "#e2f0d9",
+    tip: "Grow up a trellis to save space and keep fruit straight. Pick every other day — leaving one to yellow stops the whole plant."
+  },
+  {
+    name: "Okra",
+    botanical: "Abelmoschus esculentus",
+    category: "Vegetables",
+    difficulty: 2,
+    light: "Full sun, heat lover",
+    water: "Every 2–3 days",
+    height: "1–2 m",
+    glyph: "🌽",
+    tint: "#e6efd9",
+    tip: "Harvest pods at 7–10 cm, every two days, while still tender. Wear gloves — the stems carry fine irritating hairs."
+  },
+  {
+    name: "Brinjal",
+    botanical: "Solanum melongena",
+    category: "Vegetables",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Every 2–3 days",
+    height: "60–120 cm",
+    glyph: "🍆",
+    tint: "#e7e2f0",
+    tip: "Flea beetles love young leaves — cover with netting until plants are established. Stake heavy-fruiting varieties."
+  },
+
+  /* ---------------- Flowers ---------------- */
+  {
+    name: "Marigold",
+    botanical: "Tagetes erecta",
+    category: "Flowers",
+    difficulty: 1,
+    light: "Full sun",
+    water: "Every 2–3 days",
+    height: "30–90 cm",
+    glyph: "🌼",
+    tint: "#fbeacd",
+    tip: "Deadhead weekly for non-stop bloom. Plant among vegetables — the scent deters nematodes and whitefly."
+  },
+  {
+    name: "Rose",
+    botanical: "Rosa spp.",
+    category: "Flowers",
+    difficulty: 3,
+    light: "Full sun, 6 h",
+    water: "Deeply twice weekly",
+    height: "60–200 cm",
+    glyph: "🌹",
+    tint: "#f7dfe2",
+    tip: "Water at the base to keep foliage dry and black spot at bay. Prune in late winter, cutting just above an outward-facing bud."
+  },
+  {
+    name: "Sunflower",
+    botanical: "Helianthus annuus",
+    category: "Flowers",
+    difficulty: 1,
+    light: "Full sun, 6–8 h",
+    water: "Deeply twice weekly",
+    height: "1–3 m",
+    glyph: "🌻",
+    tint: "#fbeecd",
+    tip: "Sow directly where it should grow — taproots hate disturbance. Shelter tall varieties from wind, or stake them."
+  },
+  {
+    name: "Hibiscus",
+    botanical: "Hibiscus rosa-sinensis",
+    category: "Flowers",
+    difficulty: 2,
+    light: "Full sun to bright light",
+    water: "Twice weekly",
+    height: "1–3 m",
+    glyph: "🌺",
+    tint: "#f9dfe0",
+    tip: "Feed with potassium-rich fertiliser through summer for bigger blooms. Prune lightly in early spring; buds form on new wood."
+  },
+  {
+    name: "Petunia",
+    botanical: "Petunia × atkinsiana",
+    category: "Flowers",
+    difficulty: 1,
+    light: "Full sun to part shade",
+    water: "Daily in summer",
+    height: "20–40 cm",
+    glyph: "🌸",
+    tint: "#f2e2f0",
+    tip: "Trailing types spill beautifully from baskets. Cut back by a third mid-summer when blooms slow, and they will return."
+  },
+  {
+    name: "Dahlia",
+    botanical: "Dahlia pinnata",
+    category: "Flowers",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Deeply twice weekly",
+    height: "40–120 cm",
+    glyph: "🏵️",
+    tint: "#f7e2e6",
+    tip: "Pinch the growing tip at 30 cm for a bushier plant with more flowers. Lift tubers after the first frost in cold climates."
+  },
+  {
+    name: "Chrysanthemum",
+    botanical: "Chrysanthemum morifolium",
+    category: "Flowers",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Every 2–3 days",
+    height: "30–90 cm",
+    glyph: "🌼",
+    tint: "#f8eed6",
+    tip: "Pinch stems through early summer for dense domes of bloom. Short days trigger flowering, so avoid bright night lights."
+  },
+
+  /* ---------------- Fruit ---------------- */
+  {
+    name: "Strawberry",
+    botanical: "Fragaria × ananassa",
+    category: "Fruit",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Every 2 days",
+    height: "15–30 cm",
+    glyph: "🍓",
+    tint: "#f9dfe0",
+    tip: "Mulch with straw to keep fruit clean and damp. Runners sap energy — snip them unless you want new plants."
+  },
+  {
+    name: "Lemon",
+    botanical: "Citrus limon",
+    category: "Fruit",
+    difficulty: 3,
+    light: "Full sun, 6+ h",
+    water: "Deeply weekly",
+    height: "1.5–4 m",
+    glyph: "🍋",
+    tint: "#f8f0cf",
+    tip: "Needs excellent drainage and protection from frost. Feed with citrus-specific fertiliser monthly from spring to late summer."
+  },
+  {
+    name: "Banana",
+    botanical: "Musa acuminata",
+    category: "Fruit",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Daily, heavily",
+    height: "2–5 m",
+    glyph: "🍌",
+    tint: "#f0f0d4",
+    tip: "A heavy feeder and drinker — mulch thickly and water deeply. Remove suckers to keep two or three stems per clump."
+  },
+  {
+    name: "Guava",
+    botanical: "Psidium guajava",
+    category: "Fruit",
+    difficulty: 2,
+    light: "Full sun",
+    water: "Weekly, deeply",
+    height: "2–5 m",
+    glyph: "🍐",
+    tint: "#e8f0d6",
+    tip: "Tolerates poor soil but fruits best with regular deep watering. Prune to an open goblet shape so light reaches the centre."
+  },
+
+  /* ---------------- Trees & Shrubs ---------------- */
+  {
+    name: "Neem",
+    botanical: "Azadirachta indica",
+    category: "Trees & Shrubs",
+    difficulty: 1,
+    light: "Full sun",
+    water: "Every 2 weeks once established",
+    height: "8–15 m",
+    glyph: "🌳",
+    tint: "#dcebd6",
+    tip: "Extremely drought tolerant after the first two years. Leaves can be steeped into a mild insect spray for the garden."
+  },
+  {
+    name: "Ficus (Weeping Fig)",
+    botanical: "Ficus benjamina",
+    category: "Trees & Shrubs",
+    difficulty: 2,
+    light: "Bright indirect",
+    water: "Every 7–10 days",
+    height: "1–3 m indoors",
+    glyph: "🌲",
+    tint: "#dceadc",
+    tip: "Drops leaves when conditions change. Pick one spot with steady light and temperature, and rotate only occasionally."
+  },
+  {
+    name: "Hydrangea",
+    botanical: "Hydrangea macrophylla",
+    category: "Trees & Shrubs",
+    difficulty: 2,
+    light: "Morning sun, afternoon shade",
+    water: "Every 2–3 days",
+    height: "1–2 m",
+    glyph: "💠",
+    tint: "#e2e8f5",
+    tip: "Flower colour follows soil pH — acidic soil gives blue, alkaline gives pink. Water deeply; wilting midday is normal."
+  },
+  {
+    name: "Boxwood",
+    botanical: "Buxus sempervirens",
+    category: "Trees & Shrubs",
+    difficulty: 2,
+    light: "Sun to part shade",
+    water: "Weekly",
+    height: "1–2 m",
+    glyph: "🌳",
+    tint: "#dcebd9",
+    tip: "Clip in late spring and again in late summer for crisp edges. Shear lightly — cutting into old wood leaves bare patches."
+  }
+];
+
+/* Where each category is typically grown. Used by the "Where" filter. */
+(function () {
+  var SETTING = {
+    "Indoor": "indoor",
+    "Succulents & Cacti": "both",
+    "Climbers & Creepers": "outdoor",
+    "Herbs": "both",
+    "Vegetables": "outdoor",
+    "Flowers": "outdoor",
+    "Fruit": "outdoor",
+    "Trees & Shrubs": "both"
+  };
+  window.PLANTS.forEach(function (p) {
+    p.where = SETTING[p.category] || "both";
+  });
+})();
