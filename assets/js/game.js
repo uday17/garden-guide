@@ -40,6 +40,7 @@
     picker: $("#plantPicker"),
     plantTip: $("#plantTip"),
     dayCount: $("#dayCount"),
+    daySub: $("#daySub"),
     hint: $("#gameHint"),
     result: $("#result"),
     activePlot: $("#activePlotLabel"),
@@ -76,12 +77,15 @@
 
   function syncDayCounter() {
     const p = selectedPlotData();
-    els.dayCount.textContent = p ? `${p.day}/${TOTAL_DAYS}` : `plot ${state.selectedPlot + 1}`;
+    els.dayCount.textContent = String(state.selectedPlot + 1);
+    if (els.daySub) {
+      els.daySub.textContent = p ? `day ${p.day} of ${TOTAL_DAYS}` : "empty";
+    }
     if (els.dayCount.parentElement) {
       els.dayCount.parentElement.setAttribute(
         "aria-label",
-        p ? `Selected plot ${state.selectedPlot + 1}, day ${p.day} of ${TOTAL_DAYS}`
-          : `Selected plot ${state.selectedPlot + 1}, no plant yet`
+        p ? `Plot ${state.selectedPlot + 1}, day ${p.day} of ${TOTAL_DAYS}`
+          : `Plot ${state.selectedPlot + 1}, empty`
       );
     }
   }
