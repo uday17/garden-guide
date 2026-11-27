@@ -26,7 +26,6 @@
   }
 
   const state = {
-    day: 0,
     selectedPlot: 0,
     view: 0,
     selectedPlant: null,
@@ -72,6 +71,20 @@
   }
 
   function say(message) { els.hint.textContent = message; }
+
+  function selectedPlotData() { return state.plots[state.selectedPlot]; }
+
+  function syncDayCounter() {
+    const p = selectedPlotData();
+    els.dayCount.textContent = p ? `${p.day}/${TOTAL_DAYS}` : `plot ${state.selectedPlot + 1}`;
+    if (els.dayCount.parentElement) {
+      els.dayCount.parentElement.setAttribute(
+        "aria-label",
+        p ? `Selected plot ${state.selectedPlot + 1}, day ${p.day} of ${TOTAL_DAYS}`
+          : `Selected plot ${state.selectedPlot + 1}, no plant yet`
+      );
+    }
+  }
 
   /* ---------- plant picker ---------- */
   function buildPicker() {
@@ -157,7 +170,9 @@
   function renderTabs() {
     const tabs = [0, 1, 2].map((i) => `
       <button class="plot-tab" type="button" data-view="${i}" aria-pressed="${state.view === i}">
-        Plot ${i + 1}${state.plots[i] ? " · " + state.plots[i].plant.name : ""}
+        Plot ${i + 1}${state.plots[i]
+          ? ` · ${state.plots[i].plant.name} · ${state.plots[i].day}/${TOTAL_DAYS}d`
+          : ""}
       </button>`).join("");
     els.plotTabs.innerHTML = tabs + `
       <button class="plot-tab" type="button" data-view="all" aria-pressed="${state.view === "all"}">All pots</button>`;
@@ -173,7 +188,7 @@
       const active = i === state.selectedPlot ? " is-active" : "";
       const planted = Boolean(p);
       const growth = planted
-        ? (p.dead ? .72 : .55 + .45 * (Math.min(state.day, TOTAL_DAYS) / TOTAL_DAYS) * (p.health / 100))
+        ? (p.dead ? .72 : .55 + .45 * (Math.min(p.day, TOTAL_DAYS) / TOTAL_DAYS) * (p.health / 100))
         : .62;
       const visual = planted
         ? `<img class="plot__photo${p.dead ? " is-dead" : ""}" src="${p.plant.image}" alt="${p.plant.name}" style="--growth:${growth.toFixed(2)}" loading="lazy">`
@@ -191,7 +206,7 @@
             <span class="plot__soil"></span>
           </span>
           <span class="plot__status">${planted ? plotStatus(p) : "Empty pot"}</span>
-          <span class="plot__meta">${planted ? `${p.plant.name} · day ${p.age}` : "Ready for a plant"}</span>
+          <span class="plot__meta">${planted ? `${p.plant.name} · day ${p.day}/${TOTAL_DAYS}` : "Ready for a plant"}</span>
           ${bars}
           ${planted ? `<button class="plot__clear" type="button" data-clear="${i}" aria-label="Clear plot ${i + 1}">×</button>` : ""}
         </div>`;
@@ -200,6 +215,7 @@
     els.activePlot.textContent = `Plot ${state.selectedPlot + 1} is selected.`;
     els.plantBtn.textContent = `Plant in plot ${state.selectedPlot + 1}`;
     els.waterBtn.textContent = `💧 Water plot ${state.selectedPlot + 1} only`;
+    syncDayCounter();
     renderTabs();
   }
 
@@ -255,7 +271,7 @@
       mismatch: soilMismatch(state.mix, plant.soil),
       health: 100,
       moisture: 20,
-      age: 0,
+      day: 0,
       dead: false
     };
     state.view = state.selectedPlot;
@@ -265,13 +281,10 @@
   }
 
   /* ---------- simulation ---------- */
-  function simulateDay(watered) {
-    state.plots.forEach((p, index) => {
-      if (!p) return;
-      p.age += 1;
-      if (p.dead) return;
-      const getsWater = watered && index === state.selectedPlot;
-      p.moisture = clamp(p.moisture + (getsWater ? 45 : -30), 0, 100);
+  function simulatePlotDay(p, watered) {
+    if (!p) return;
+    if (p.dead) return;
+    p.moisture = clamp(p.moisture + (watered ? 45 : -30), 0, 100);
 
       const [lo, hi] = moistureBand(p.plant.every);
       let stress = 0;
@@ -292,32 +305,39 @@
         p.dead = true;
         sound("fail");
       }
-    });
+  }
+
+  function allDone() {
+    const planted = state.plots.filter(Boolean);
+    return planted.length > 0 && planted.every((p) => p.day >= TOTAL_DAYS);
   }
 
   function advance(days, watered) {
-    if (state.finished) { say("The three weeks are over. Start a new garden to play again."); return; }
-    if (!state.plots.some(Boolean)) { say("Plant something first — an empty garden cannot grow."); return; }
+    if (state.finished) { say("All plots have finished. Start a new garden to play again."); return; }
+    const p = selectedPlotData();
+    if (!p) { say(`Plot ${state.selectedPlot + 1} is empty. Plant something there first.`); return; }
+    if (p.day >= TOTAL_DAYS) {
+      say(`Plot ${state.selectedPlot + 1} has finished its ${TOTAL_DAYS} days. Pick another plot.`);
+      return;
+    }
 
     sound(watered ? "water" : "skip");
-    const count = clamp(Math.round(Number(days) || 1), 1, TOTAL_DAYS);
+    const count = clamp(Math.round(Number(days) || 1), 1, TOTAL_DAYS - p.day);
     let stepped = 0;
-    for (let i = 0; i < count && state.day < TOTAL_DAYS; i++) {
-      state.day += 1;
-      simulateDay(watered);
+    for (let i = 0; i < count && p.day < TOTAL_DAYS; i++) {
+      p.day += 1;
+      simulatePlotDay(p, watered && i === 0);
       stepped += 1;
     }
 
     renderPlots();
-    els.dayCount.textContent = state.day;
 
-    if (state.day >= TOTAL_DAYS) {
-      finish();
-      return;
-    }
-    if (watered) say(`Day ${state.day}. Watered plot ${state.selectedPlot + 1} only${stepped > 1 ? ` for ${stepped} days` : ""}.`);
-    else if (stepped === 1) say(`Day ${state.day}. No water today — every pot dried a little.`);
-    else say(`Day ${state.day}. You skipped ${stepped} days — every pot dried out.`);
+    if (allDone()) { finish(); return; }
+
+    const detail = watered
+      ? `Watered${stepped > 1 ? `, then skipped ${stepped - 1} more days` : ""}`
+      : (stepped === 1 ? "Skipped a day" : `Skipped ${stepped} days`);
+    say(`Plot ${state.selectedPlot + 1}: day ${p.day}/${TOTAL_DAYS}. ${detail}. Other plots keep their own day.`);
   }
 
   function finish() {
@@ -348,14 +368,12 @@
   }
 
   function reset() {
-    state.day = 0;
     state.finished = false;
     state.plots = [null, null, null];
     state.selectedPlot = 0;
     state.view = 0;
     state.selectedPlant = null;
     state.mix = { loam: 40, compost: 30, drainage: 30 };
-    els.dayCount.textContent = "0";
     els.result.hidden = true;
     els.result.innerHTML = "";
     els.picker.querySelectorAll(".plant-option").forEach((el) => el.setAttribute("aria-pressed", "false"));

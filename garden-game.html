@@ -66,10 +66,10 @@
     <div class="game-shell">
 
       <div class="game-toolbar">
-        <div class="game-day" aria-label="Current day">
-          <span>Day</span>
-          <b id="dayCount">0</b>
-          <small>of 21</small>
+        <div class="game-day" aria-label="Selected plot day">
+          <span>Selected plot</span>
+          <b id="dayCount">plot 1</b>
+          <small>day of 21</small>
         </div>
         <p class="game-hint" id="gameHint" role="status" aria-live="polite">Pick a plant, mix the soil, then plant it in a pot.</p>
         <div class="game-actions">
@@ -97,11 +97,11 @@
         <section class="game-garden" aria-labelledby="gardenTitle">
           <div class="game-garden__head">
             <h2 id="gardenTitle">Your garden</h2>
-            <span class="game-pill">Watering affects the selected plot only</span>
+            <span class="game-pill">Every plot has its own day counter</span>
           </div>
           <div class="plot-tabs" id="plotTabs" role="group" aria-label="Choose which plot to view"></div>
           <div class="plot-grid" id="plots"></div>
-          <p class="game-footnote">Click a plot above to work on just that pot. “All pots” shows them together. Days advance for every pot, but the watering can only feeds the selected one — thirsty plants need their own turn.</p>
+          <p class="game-footnote">Click a plot or its tab to choose which pot you are working on. Days and watering advance only for that plot — the other pots stay on their own day. “All pots” shows them together.</p>
         </section>
 
         <div class="game-controls">
