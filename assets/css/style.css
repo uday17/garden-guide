@@ -998,9 +998,16 @@ tbody tr:hover { background: color-mix(in srgb, var(--brand-soft) 45%, transpare
   content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
   background: radial-gradient(45% 35% at 50% 50%, rgba(160, 180, 135, .12), transparent 70%);
 }
-.hero__inner {
+.hero--botanical .hero__inner {
   position: relative; z-index: 2;
-  text-align: center; max-width: 720px; margin-inline: auto;
+  text-align: center; max-width: 760px; margin-inline: auto;
+  padding: clamp(1.8rem, 4vw, 3rem);
+  border-radius: 26px;
+  background: rgba(14, 28, 20, .58);
+  backdrop-filter: blur(16px) saturate(1.1);
+  -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  border: 1px solid rgba(255, 255, 255, .16);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, .45);
 }
 .hero--botanical .eyebrow {
   justify-content: center; color: #cbbb8e;
@@ -1032,21 +1039,11 @@ tbody tr:hover { background: color-mix(in srgb, var(--brand-soft) 45%, transpare
 .btn--outline:hover { background: #f0e8d4; color: #122019; border-color: #f0e8d4; }
 .botanical {
   position: absolute; top: 0; bottom: 0; z-index: 1;
-  width: min(40vw, 440px); pointer-events: none;
+  width: min(46vw, 500px); pointer-events: none;
 }
 .botanical--left { left: -4%; }
 .botanical--right { right: -4%; }
 .botanical svg { width: 100%; height: 100%; display: block; }
-.botanical .stem {
-  position: absolute; bottom: -3%; width: 5px; height: 72%;
-  background: linear-gradient(180deg, #78956c, #27432f);
-  border-radius: 999px; transform-origin: bottom center;
-  opacity: .8;
-}
-.stem--l1 { left: 28%; transform: rotate(-12deg); }
-.stem--l2 { left: 52%; height: 62%; transform: rotate(15deg); }
-.stem--r1 { right: 26%; transform: rotate(14deg); }
-.stem--r2 { right: 52%; height: 64%; transform: rotate(-16deg); }
 .natural-leaf {
   position: absolute; display: block;
   width: var(--w, 140px); height: var(--h, 200px);
@@ -1063,16 +1060,6 @@ tbody tr:hover { background: color-mix(in srgb, var(--brand-soft) 45%, transpare
     linear-gradient(96deg, transparent 48%, rgba(255, 255, 255, .2) 50%, transparent 52%),
     linear-gradient(180deg, rgba(12, 30, 20, .04), rgba(12, 30, 20, .38));
 }
-.leaf--l1 { --w: 130px; --h: 200px; left: 0; top: 5%; transform: rotate(-38deg); }
-.leaf--l2 { --w: 118px; --h: 176px; left: 22%; top: 22%; transform: rotate(28deg); }
-.leaf--l3 { --w: 142px; --h: 210px; left: -6%; top: 42%; transform: rotate(-26deg); }
-.leaf--l4 { --w: 120px; --h: 180px; left: 24%; top: 60%; transform: rotate(22deg); }
-.leaf--l5 { --w: 134px; --h: 196px; left: 0; top: 78%; transform: rotate(-16deg); }
-.leaf--r1 { --w: 180px; --h: 262px; right: 0; top: 3%; transform: rotate(24deg); }
-.leaf--r2 { --w: 158px; --h: 238px; right: 26%; top: 20%; transform: rotate(-22deg); }
-.leaf--r3 { --w: 192px; --h: 272px; right: -4%; top: 40%; transform: rotate(16deg); }
-.leaf--r4 { --w: 150px; --h: 220px; right: 28%; top: 58%; transform: rotate(-18deg); }
-.leaf--r5 { --w: 162px; --h: 230px; right: 4%; top: 76%; transform: rotate(26deg); }
 .natural-bloom {
   position: absolute; left: 22%; top: 5%;
   width: 96px; height: 96px; border-radius: 50%;
