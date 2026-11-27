@@ -426,9 +426,7 @@ strong { font-weight: 650; color: var(--ink); }
   background: var(--surface); border: 1px solid var(--line);
   border-radius: var(--radius);
   box-shadow: var(--shadow-sm);
-  position: sticky; top: 76px; z-index: 20;
 }
-@media (max-width: 720px) { .filterbar { position: static; } }
 .chips { display: flex; flex-wrap: wrap; gap: .4rem; }
 .chip {
   border: 1px solid var(--line); background: var(--surface);
