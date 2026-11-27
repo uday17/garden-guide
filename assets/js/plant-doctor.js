@@ -376,15 +376,17 @@
       symptom: document.getElementById("doctorSymptom").value
     };
     statusEl.textContent = "Analysing your photo…";
-    addMessage("bot", "<p>Analysing the photo and your answers…</p>");
+    const pending = addMessage("bot", "<p>Analysing the photo and your answers…</p>");
 
     analyse(currentFile)
       .then((stats) => {
+        pending.remove();
         lastResult = buildResult(stats, answers);
         statusEl.textContent = "Analysis complete — this stays in your browser.";
         addMessage("bot", lastResult.html);
       })
       .catch((err) => {
+        pending.remove();
         statusEl.textContent = err.message;
         bot("I couldn't read that image. Please try a clear JPG or PNG of the leaves.");
       });
