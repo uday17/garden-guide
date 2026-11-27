@@ -59,10 +59,10 @@ window.STATE_PLANTS = [
       <article class="card card--hover">
         <span class="pill ${s.region === "Union territory" ? "pill--sky" : ""}">${esc(s.region)}</span>
         <h3 style="margin-top:.7rem">${esc(s.state)}</h3>
-        <div class="kv" style="margin-top:.8rem">
+        <dl class="kv" style="margin-top:.8rem">
           <div><dt>State flower</dt><dd>${esc(s.flower)}</dd></div>
           <div><dt>State tree</dt><dd>${esc(s.tree)}</dd></div>
-        </div>
+        </dl>
       </article>`).join("");
     if (count) count.textContent = list.length + " of " + window.STATE_PLANTS.length + " regions";
   }

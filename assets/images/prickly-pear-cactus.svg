@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400" role="img" aria-label="Flat illustration of a prickly pear cactus with orange flowers">
+  <defs>
+    <pattern id="speck" width="11" height="11" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="3" r="1.25" fill="#dbe9d4" opacity=".85"/>
+    </pattern>
+    <g id="bloom">
+      <g fill="#f7a341">
+        <ellipse cx="0" cy="-9" rx="4.6" ry="8.5"/>
+        <ellipse cx="0" cy="-9" rx="4.6" ry="8.5" transform="rotate(60)"/>
+        <ellipse cx="0" cy="-9" rx="4.6" ry="8.5" transform="rotate(120)"/>
+        <ellipse cx="0" cy="-9" rx="4.6" ry="8.5" transform="rotate(180)"/>
+        <ellipse cx="0" cy="-9" rx="4.6" ry="8.5" transform="rotate(240)"/>
+        <ellipse cx="0" cy="-9" rx="4.6" ry="8.5" transform="rotate(300)"/>
+      </g>
+      <circle r="4.6" fill="#dd7729"/>
+      <circle r="1.7" fill="#ffd18a"/>
+    </g>
+  </defs>
+
+  <!-- sage backdrop with soft geometric blocks -->
+  <rect width="400" height="400" fill="#9cb69b"/>
+  <rect x="74" y="44" width="158" height="262" fill="#a9c2a8"/>
+  <rect x="184" y="116" width="150" height="256" fill="#8ea88e"/>
+
+  <!-- back paddles -->
+  <g transform="rotate(-28 136 196)">
+    <ellipse cx="136" cy="196" rx="36" ry="56" fill="#4d7a62"/>
+    <ellipse cx="136" cy="196" rx="36" ry="56" fill="url(#speck)"/>
+  </g>
+  <g transform="rotate(24 264 188)">
+    <ellipse cx="264" cy="188" rx="34" ry="54" fill="#48735b"/>
+    <ellipse cx="264" cy="188" rx="34" ry="54" fill="url(#speck)"/>
+  </g>
+
+  <!-- upper paddle -->
+  <ellipse cx="202" cy="146" rx="34" ry="52" fill="#517f66"/>
+  <ellipse cx="202" cy="146" rx="34" ry="52" fill="url(#speck)"/>
+
+  <!-- side paddles -->
+  <g transform="rotate(-15 152 232)">
+    <ellipse cx="152" cy="232" rx="41" ry="61" fill="#4b7860"/>
+    <ellipse cx="152" cy="232" rx="41" ry="61" fill="url(#speck)"/>
+  </g>
+  <g transform="rotate(15 250 236)">
+    <ellipse cx="250" cy="236" rx="39" ry="59" fill="#47725a"/>
+    <ellipse cx="250" cy="236" rx="39" ry="59" fill="url(#speck)"/>
+  </g>
+
+  <!-- front paddle -->
+  <ellipse cx="200" cy="276" rx="47" ry="65" fill="#548168"/>
+  <ellipse cx="200" cy="276" rx="47" ry="65" fill="url(#speck)"/>
+
+  <!-- blooms -->
+  <use href="#bloom" transform="translate(116 132) scale(.95)"/>
+  <use href="#bloom" transform="translate(202 90) scale(1.05)"/>
+  <use href="#bloom" transform="translate(288 126) scale(.9)"/>
+</svg>

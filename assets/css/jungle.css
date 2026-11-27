@@ -451,3 +451,10 @@ body.jungle-home > .header .icon-btn {
 @media (prefers-reduced-motion: reduce) {
   .jungle-cat__icon { transition: none; }
 }
+
+/* Active filter chips need a dark background for readable white text */
+body.jungle-home .chip[aria-pressed="true"] {
+  background: #0c5c59;
+  border-color: #0c5c59;
+  color: #ffffff;
+}
