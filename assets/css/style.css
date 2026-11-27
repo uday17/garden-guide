@@ -608,6 +608,21 @@ tbody tr:hover { background: color-mix(in srgb, var(--brand-soft) 45%, transpare
   background: var(--swatch, var(--brand));
 }
 .soil-card { padding-left: 1.6rem; }
+.soil-card__photo {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover;
+  border-radius: 10px; border: 1px solid var(--line);
+  margin-bottom: .9rem;
+}
+.soil-photo {
+  margin: 0; border-radius: var(--radius); overflow: hidden;
+  border: 1px solid var(--line); background: var(--bg-tint);
+  box-shadow: var(--shadow-sm);
+}
+.soil-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+.soil-photo figcaption {
+  padding: .7rem .9rem; font-size: .8rem; color: var(--muted);
+  background: var(--surface); border-top: 1px solid var(--line);
+}
 .swatches { display: flex; gap: .35rem; margin-top: .9rem; }
 .swatches i { height: 10px; flex: 1; border-radius: 999px; background: var(--swatch, var(--brand)); opacity: .85; }
 

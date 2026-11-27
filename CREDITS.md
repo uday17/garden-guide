@@ -62,5 +62,13 @@ Click a filename to see the original file page, author and full licence terms.
 | Hydrangea | [File:(Natural)_Hydrangea_macrophylla,_Iwafune,_Isumi,_Chiba,_Japan_2.jpg](<https://commons.wikimedia.org/wiki/File:(Natural)_Hydrangea_macrophylla,_Iwafune,_Isumi,_Chiba,_Japan_2.jpg>) | belvedere04 | CC BY 4.0 |
 | Boxwood | [File:Buxus_sempervirens.jpg](<https://commons.wikimedia.org/wiki/File:Buxus_sempervirens.jpg>) | No machine-readable author provided. MPF assumed (based on copyright claims). | CC BY 2.5 |
 
+| soil-sand | [Sandy loam 2.JPG](<https://commons.wikimedia.org/wiki/File:Sandy_loam_2.JPG>) | own work | Public domain |
+| soil-clay | [Nc-red-clay-soil-1.jpg](<https://commons.wikimedia.org/wiki/File:Nc-red-clay-soil-1.jpg>) | Flickr user Soil-Science.info / Dr. David Lindbo of the Department of Soil Science at NC State University | CC BY 2.0 |
+| soil-silt | [North Esk River silt, grass 20190425-005.jpg](<https://commons.wikimedia.org/wiki/File:North_Esk_River_silt,_grass_20190425-005.jpg>) | Gary Houston | CC0 |
+| soil-loam | [Loam soil of Hesbaye.jpg](<https://commons.wikimedia.org/wiki/File:Loam_soil_of_Hesbaye.jpg>) | Peter Van den Bossche | CC BY-SA 2.0 |
+| soil-peat | [Peat (49302157252).jpg](<https://commons.wikimedia.org/wiki/File:Peat_(49302157252).jpg>) | David Stanley from Nanaimo, Canada | CC BY 2.0 |
+| soil-chalk | [Calcareous Soil Profile, Seven Sisters Country Park - geograph.org.uk - 1280181.jpg](<https://commons.wikimedia.org/wiki/File:Calcareous_Soil_Profile,_Seven_Sisters_Country_Park_-_geograph.org.uk_-_1280181.jpg>) | Nigel Chadwick | CC BY-SA 2.0 |
+| soil-samples | [Soil Texture Samples including loam, sand and clay.jpg](<https://commons.wikimedia.org/wiki/File:Soil_Texture_Samples_including_loam,_sand_and_clay.jpg>) | Gnomedude | CC BY 2.0 |
+
 Photos are used under their respective free licences (CC BY-SA, CC BY, public domain, etc.).
 If you reuse these images elsewhere, follow the licence linked on each file page.

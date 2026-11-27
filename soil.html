@@ -67,23 +67,10 @@
       water and air move through it.</p>
 
     <div class="split" style="margin-top:1.5rem">
-      <div class="feature__media" style="aspect-ratio:1/1;background:var(--surface);padding:1rem" aria-hidden="true">
-        <svg viewBox="0 0 360 320" role="presentation">
-          <defs>
-            <linearGradient id="tri" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0" stop-color="#e8dcc2"/><stop offset="1" stop-color="#c9b78f"/>
-            </linearGradient>
-          </defs>
-          <path d="M180 30 330 285H30Z" fill="url(#tri)" stroke="#b9a780" stroke-width="2"/>
-          <path d="M180 95 285 285H75Z" fill="#a8c69a" opacity=".55"/>
-          <path d="M180 165 240 285H120Z" fill="#7aa87a" opacity=".55"/>
-          <text x="180" y="22" text-anchor="middle" font-size="12" font-weight="700" fill="#6b5c3f" font-family="Inter,sans-serif">CLAY</text>
-          <text x="38" y="300" font-size="12" font-weight="700" fill="#6b5c3f" font-family="Inter,sans-serif">SAND</text>
-          <text x="276" y="300" font-size="12" font-weight="700" fill="#6b5c3f" font-family="Inter,sans-serif">SILT</text>
-          <text x="180" y="215" text-anchor="middle" font-size="11" font-weight="700" fill="#245237" font-family="Inter,sans-serif">LOAM</text>
-          <text x="180" y="232" text-anchor="middle" font-size="9" fill="#245237" font-family="Inter,sans-serif">the sweet spot</text>
-        </svg>
-      </div>
+      <figure class="soil-photo reveal">
+        <img src="assets/images/soil-samples.jpg" alt="Side-by-side samples of sand, silt and clay soils" loading="lazy" width="600" height="400">
+        <figcaption>Real samples: texture is decided by particle size, not by colour.</figcaption>
+      </figure>
       <div>
         <h3>Sand, silt, clay</h3>
         <ul>
@@ -107,6 +94,7 @@
 
     <div class="grid grid--3" style="margin-top:1.5rem">
       <article class="card soil-card reveal" style="--swatch:#d9b98a">
+        <img class="soil-card__photo" src="assets/images/soil-sand.jpg" alt="Gritty sandy soil" loading="lazy" width="600" height="338">
         <h3>Sandy soil</h3>
         <p class="small muted">Gritty, warms fast, dries out within hours. Nutrients wash straight through.</p>
         <div class="swatches" aria-hidden="true"><i></i><i style="opacity:.6"></i><i style="opacity:.35"></i></div>
@@ -114,6 +102,7 @@
       </article>
 
       <article class="card soil-card reveal" style="--swatch:#b7a58a">
+        <img class="soil-card__photo" src="assets/images/soil-clay.jpg" alt="Dense red clay soil" loading="lazy" width="600" height="338">
         <h3>Clay soil</h3>
         <p class="small muted">Sticky when wet, rock-hard when dry. Drains slowly and stays cold in spring.</p>
         <div class="swatches" aria-hidden="true"><i></i><i style="opacity:.6"></i><i style="opacity:.35"></i></div>
@@ -121,6 +110,7 @@
       </article>
 
       <article class="card soil-card reveal" style="--swatch:#9c8f77">
+        <img class="soil-card__photo" src="assets/images/soil-silt.jpg" alt="Fine silt soil beside a river" loading="lazy" width="600" height="338">
         <h3>Silt soil</h3>
         <p class="small muted">Smooth and floury, fertile and moisture-retentive — but easily compacted.</p>
         <div class="swatches" aria-hidden="true"><i></i><i style="opacity:.6"></i><i style="opacity:.35"></i></div>
@@ -128,6 +118,7 @@
       </article>
 
       <article class="card soil-card reveal" style="--swatch:#5f7a4a">
+        <img class="soil-card__photo" src="assets/images/soil-loam.jpg" alt="Dark crumbly loam soil" loading="lazy" width="600" height="338">
         <h3>Loam</h3>
         <p class="small muted">The ideal: crumbly, dark, holds moisture and drains freely. Most plants thrive.</p>
         <div class="swatches" aria-hidden="true"><i></i><i style="opacity:.6"></i><i style="opacity:.35"></i></div>
@@ -135,6 +126,7 @@
       </article>
 
       <article class="card soil-card reveal" style="--swatch:#7d6a52">
+        <img class="soil-card__photo" src="assets/images/soil-peat.jpg" alt="Dark spongy peat soil" loading="lazy" width="600" height="338">
         <h3>Peat soil</h3>
         <p class="small muted">Dark, spongy, very acidic and waterlogged. Common in boggy regions.</p>
         <div class="swatches" aria-hidden="true"><i></i><i style="opacity:.6"></i><i style="opacity:.35"></i></div>
@@ -142,11 +134,97 @@
       </article>
 
       <article class="card soil-card reveal" style="--swatch:#8a8378">
+        <img class="soil-card__photo" src="assets/images/soil-chalk.jpg" alt="Pale chalky limestone soil profile" loading="lazy" width="600" height="338">
         <h3>Chalky / limestone soil</h3>
         <p class="small muted">Pale, stony and alkaline. Dries quickly and locks up iron and manganese.</p>
         <div class="swatches" aria-hidden="true"><i></i><i style="opacity:.6"></i><i style="opacity:.35"></i></div>
         <p class="small" style="margin-top:.9rem"><strong>Fix:</strong> add plenty of compost and sulphur to acidify slightly; grow alkaline-tolerant plants such as lavender, clematis and cabbage.</p>
       </article>
+    </div>
+
+    <h2 id="percentages" style="margin-top:3rem">Soil percentages — and how much to use</h2>
+    <p class="lede">Every soil type has a typical mineral make-up. The numbers below are approximate percentages by
+      volume, along with how much of each soil to use in a pot indoors versus a bed outdoors.</p>
+
+    <div class="table-wrap" style="margin-top:1.5rem">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Soil type</th>
+            <th scope="col">Typical make-up</th>
+            <th scope="col">Natural pH</th>
+            <th scope="col">In indoor pots</th>
+            <th scope="col">In outdoor beds</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sandy</strong></td>
+            <td>80% sand · 10% silt · 10% clay</td>
+            <td>6.0–7.5</td>
+            <td><strong>20–30%</strong> of a houseplant mix; raise to <strong>50–60%</strong> with grit for cacti and succulents.</td>
+            <td>Use as-is. Dig in <strong>5–8 cm</strong> compost per season (about 20% by volume) and mulch thickly.</td>
+          </tr>
+          <tr>
+            <td><strong>Clay</strong></td>
+            <td>20% sand · 40% silt · 40% clay</td>
+            <td>6.5–8.0</td>
+            <td><strong>Max 10–20%</strong>, only in large pots and only if broken up — it compacts badly in small containers.</td>
+            <td>Work <strong>10–20%</strong> compost into the top 15 cm each year. Never dig it while wet.</td>
+          </tr>
+          <tr>
+            <td><strong>Silt</strong></td>
+            <td>10% sand · 80% silt · 10% clay</td>
+            <td>6.0–7.5</td>
+            <td><strong>20–30%</strong> at most, always blended with about <strong>25%</strong> grit or perlite to keep it open.</td>
+            <td>Add <strong>5 cm</strong> compost plus grit. Keep foot traffic off wet beds to prevent capping.</td>
+          </tr>
+          <tr>
+            <td><strong>Loam</strong></td>
+            <td>40% sand · 40% silt · 20% clay</td>
+            <td>6.0–7.0</td>
+            <td><strong>50–70%</strong> of a general potting mix, with 20–30% compost and 10–20% perlite.</td>
+            <td>Ideal as-is. Top-dress <strong>2–3 cm</strong> compost each spring and mulch annually.</td>
+          </tr>
+          <tr>
+            <td><strong>Peat</strong></td>
+            <td>Organic: <strong>80–100%</strong> partly decayed plant matter</td>
+            <td>3.5–5.0</td>
+            <td><strong>30–50%</strong> for acid-lovers and seed mixes — use peat-free coir where possible.</td>
+            <td>Only for acid-loving plants. For vegetables, lime to pH 5.5–6.5 over several months.</td>
+          </tr>
+          <tr>
+            <td><strong>Chalky</strong></td>
+            <td>Loam plus <strong>20–60%</strong> calcium carbonate</td>
+            <td>7.5–8.5</td>
+            <td><strong>10–20%</strong> only for alkaline-tolerant plants such as lavender and clematis.</td>
+            <td>Add <strong>5–8 cm</strong> compost; use sulphur to lower pH slightly for acid-lovers.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="margin-top:2.5rem">Indoor potting mixes by purpose</h3>
+    <p class="small muted">Percentages are by volume. Mix the ingredients dry, then dampen before filling pots.</p>
+    <div class="table-wrap" style="margin-top:1rem">
+      <table>
+        <thead>
+          <tr><th scope="col">Purpose</th><th scope="col">Base soil</th><th scope="col">Organic matter</th><th scope="col">Drainage</th><th scope="col">Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>General houseplants</strong></td><td>50% loam</td><td>30% compost / coir</td><td>20% perlite</td><td>Feed lightly from spring.</td></tr>
+          <tr><td><strong>Succulents &amp; cacti</strong></td><td>40% sandy soil</td><td>20% compost</td><td>40% pumice / grit</td><td>Water deeply, then dry out fully.</td></tr>
+          <tr><td><strong>Seeds &amp; cuttings</strong></td><td>0% soil</td><td>50% coir</td><td>50% perlite</td><td>Low nutrients prevent damping off.</td></tr>
+          <tr><td><strong>Acid-lovers</strong></td><td>20% sandy soil</td><td>50% ericaceous compost</td><td>30% pine bark / grit</td><td>Keep pH around 4.5–5.5.</td></tr>
+          <tr><td><strong>Ferns &amp; moisture lovers</strong></td><td>30% loam</td><td>60% compost / coir</td><td>10% perlite</td><td>Keep evenly moist, never soggy.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout" style="margin-top:1.25rem">
+      <span class="callout__icon" aria-hidden="true">📏</span>
+      <div><p><strong>Read the percentages as starting points.</strong> A heavy clay needs far more organic matter than a
+        sandy loam, and a terracotta pot dries faster than plastic. Adjust by feel: the mix should hold together when
+        squeezed but crumble easily, and water should drain within seconds.</p></div>
     </div>
 
     <h2 id="ph" style="margin-top:3rem">pH: the nutrient gatekeeper</h2>
