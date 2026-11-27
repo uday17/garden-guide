@@ -157,6 +157,8 @@
 
   if (grid && window.PLANTS) {
     const search = $("#plantSearch");
+    const fromQuery = new URLSearchParams(window.location.search).get("q");
+    if (fromQuery && search) search.value = fromQuery;
     const difficulty = $("#difficultyFilter");
     const count = $("#resultCount");
     const chips = $$("[data-cat]");

@@ -479,6 +479,25 @@
       </form>
     </section>
 
+    <!-- ================= LOCATION PLANT FINDER ================= -->
+    <section class="locator" id="localPlants" aria-labelledby="locator-title">
+      <span class="eyebrow">Grow where you live</span>
+      <h2 id="locator-title" style="margin-bottom:.4rem">What grows in your climate?</h2>
+      <p class="small muted mb-0">Share your location — or type a city or landmark — and we'll check the current temperature and suggest plants likely to thrive there. Your location is used only for this lookup.</p>
+      <div class="locator__controls">
+        <button class="btn btn--primary" type="button" id="locatorUse">📍 Use my location</button>
+        <form class="locator__field" id="locatorForm">
+          <label for="locatorQuery">Or search a city / landmark</label>
+          <div style="display:flex;gap:.5rem">
+            <input class="input" id="locatorQuery" type="search" placeholder="e.g. Pune, Kerala, Taj Mahal" autocomplete="off">
+            <button class="btn btn--ghost" type="submit">Search</button>
+          </div>
+        </form>
+      </div>
+      <p class="doctor__status" id="locatorStatus" role="status" aria-live="polite"></p>
+      <div id="locatorResult" hidden></div>
+    </section>
+
     <div class="card" style="margin-top:2.5rem;background:linear-gradient(140deg,var(--brand-soft),var(--surface) 70%)">
       <h3 style="margin-bottom:.4rem">Ready for the next level?</h3>
       <p class="small muted">Propagation, pruning theory, composting systems, IPM and growing under cover.</p>
@@ -507,7 +526,9 @@
 
 <button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
 <script src="assets/js/plants-data.js" defer></script>
+<script src="assets/js/plant-images.js" defer></script>
 <script src="assets/js/plant-doctor.js" defer></script>
+<script src="assets/js/local-plants.js" defer></script>
 <script src="assets/js/app.js" defer></script>
 </body>
 </html>

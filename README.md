@@ -26,6 +26,7 @@ framework, no tracking.
 - **Plant library** with live search (`/` shortcut), category chips, indoor/outdoor filter, difficulty
   filter and “add to my plan” shortlist.
 - **Seasonal calendar** with accessible tabs (Spring / Summer / Monsoon / Autumn / Winter).
+- **Location plant finder** on the Care page — uses browser geolocation or a city/landmark search with free Open-Meteo weather and OpenStreetMap place lookup (no keys, nothing stored), then ranks plants for the current temperature.
 - **Plant Health Assistant** on the Care page — upload a photo, answer four questions, and get an on-device colour analysis plus a likely cause, action plan and guide links. Follow-up chat answers common care questions. Nothing is uploaded.
 - **Plant photographs** — all 55 plants have a local, optimised photo with an inline source/licence link; full attribution in `CREDITS.md`.
 - **Interactive planner** — progress bar, checklists, wishlist and autosaving notes.
@@ -53,6 +54,7 @@ garden-guide/
 │   ├── images/          # 55 locally stored plant photos (600 px)
 │   └── js/
 │       ├── app.js          # Theme, nav, filters, tabs, planner
+│       ├── local-plants.js # Location + temperature plant finder
 │       ├── plant-doctor.js # On-device photo analysis + care rules
 │       ├── plants-data.js  # 55 plant records
 │       └── plant-images.js # photo path + attribution per plant
