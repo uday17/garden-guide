@@ -178,6 +178,7 @@
         .map((i) => `<i class="${i <= p.difficulty ? "on" : ""}"></i>`)
         .join("");
       const img = window.PLANT_IMAGES && window.PLANT_IMAGES[p.name];
+      const benefit = window.PLANT_BENEFITS && window.PLANT_BENEFITS[p.name];
       const photo = img
         ? `<div class="plant__photo">
              <img src="${esc(img.file)}" alt="${esc(p.name)} — ${esc(p.botanical)}"
@@ -213,6 +214,10 @@
               <summary>Care note</summary>
               <p>${esc(p.tip)}</p>
             </details>
+            ${benefit ? `<details class="plant__benefit">
+              <summary>✨ Benefits &amp; uses</summary>
+              <p>${esc(benefit)}</p>
+            </details>` : ""}
             <div class="plant__foot">
               <button class="save-btn" type="button" data-save="${esc(p.name)}"
                 aria-pressed="${isSaved(p.name)}">

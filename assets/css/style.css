@@ -539,6 +539,8 @@ strong { font-weight: 650; color: var(--ink); }
 .plant summary::after { content: "+"; font-size: 1rem; color: var(--muted); }
 .plant details[open] summary::after { content: "–"; }
 .plant details p { font-size: .84rem; color: var(--muted); margin: .5rem 0 0; }
+.plant__benefit summary { color: var(--accent-ink); }
+.plant__benefit p { border-left: 2px solid color-mix(in srgb, var(--accent) 40%, transparent); padding-left: .6rem; }
 .plant__foot { margin-top: auto; display: flex; gap: .5rem; }
 .save-btn {
   flex: 1; border: 1px solid var(--line-strong); background: var(--surface);
