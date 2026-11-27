@@ -70,5 +70,15 @@ Click a filename to see the original file page, author and full licence terms.
 | soil-chalk | [Calcareous Soil Profile, Seven Sisters Country Park - geograph.org.uk - 1280181.jpg](<https://commons.wikimedia.org/wiki/File:Calcareous_Soil_Profile,_Seven_Sisters_Country_Park_-_geograph.org.uk_-_1280181.jpg>) | Nigel Chadwick | CC BY-SA 2.0 |
 | soil-samples | [Soil Texture Samples including loam, sand and clay.jpg](<https://commons.wikimedia.org/wiki/File:Soil_Texture_Samples_including_loam,_sand_and_clay.jpg>) | Gnomedude | CC BY 2.0 |
 
+| medium-coir | [Coir fibery.jpg](<https://commons.wikimedia.org/wiki/File:Coir_fibery.jpg>) | Fotokannan | CC BY-SA 3.0 |
+| medium-perlite | [PerliteUSGOV.jpg](<https://commons.wikimedia.org/wiki/File:PerliteUSGOV.jpg>) |  | Public domain |
+| medium-potting-soil | [Potting soil.jpg](<https://commons.wikimedia.org/wiki/File:Potting_soil.jpg>) | Chris Radcliff from San Diego, CA, USA. Color-corrected and cropped by Daniel Case 2008-07-10 | CC BY-SA 2.0 |
+| medium-compost | [Compost pile.JPG](<https://commons.wikimedia.org/wiki/File:Compost_pile.JPG>) | Ksd5 | CC0 |
+| medium-vermiculite | [Vermiculite-21362.jpg](<https://commons.wikimedia.org/wiki/File:Vermiculite-21362.jpg>) | Robert M. Lavinsky | CC BY-SA 3.0 |
+| medium-leca | [Leca pellets.jpg](<https://commons.wikimedia.org/wiki/File:Leca_pellets.jpg>) | Leca67 | Public domain |
+| medium-bark | [Pine Bark Mulch at Bakin Dogo Market, Kaduna North.jpg](<https://commons.wikimedia.org/wiki/File:Pine_Bark_Mulch_at_Bakin_Dogo_Market,_Kaduna_North.jpg>) | Samsule2 | CC BY-SA 4.0 |
+| medium-pumice | [Pumice stone detail444.jpg](<https://commons.wikimedia.org/wiki/File:Pumice_stone_detail444.jpg>) | Benjamint444 | CC BY-SA 3.0 |
+| medium-worm-castings | [Sifted vermicompost vermicast.png](<https://commons.wikimedia.org/wiki/File:Sifted_vermicompost_vermicast.png>) | Renatotcm | CC BY-SA 4.0 |
+
 Photos are used under their respective free licences (CC BY-SA, CC BY, public domain, etc.).
 If you reuse these images elsewhere, follow the licence linked on each file page.

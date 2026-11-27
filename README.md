@@ -14,7 +14,7 @@ framework, no tracking.
 | --- | --- |
 | `index.html` | Learning paths, the six pillars of plant care, a five-step quick start |
 | `basics.html` | Light, water, pots and tools, potting your first plant, first four weeks, climate zones, glossary |
-| `soil.html` | Sand/silt/clay and the jar test, six soil types, pH scale, structure, compost recipes, potting mixes, amendments |
+| `soil.html` | Texture, six ground soils with %, pH, compost, **9 potting media with indoor/outdoor percentages**, mixes and amendments |
 | `plants.html` | Filterable library of **50+ plants** — indoor, climbers & creepers, succulents, herbs, vegetables, flowers, fruit, trees & shrubs |
 | `care.html` | Watering masterclass, feeding (NPK), pruning techniques, repotting, pest & disease table, five-season calendar, symptom-based troubleshooting |
 | `advanced.html` | Propagation, pruning as design, integrated pest management, soil food web, watering systems, growing under cover, hydroponics, record keeping |
