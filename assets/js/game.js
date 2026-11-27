@@ -228,7 +228,7 @@
     state.view = i;
     renderPlots();
     const p = state.plots[i];
-    say(p ? `Plot ${i + 1} has ${p.plant.name}. Watering now affects this pot only.` : `Plot ${i + 1} selected. Pick a plant, then plant it.`);
+    say(p ? `Plot ${i + 1} has ${p.plant.name}. Watering now affects this pot only.` : "");
   }
 
   function bindPlots() {
