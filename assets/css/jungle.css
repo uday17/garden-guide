@@ -1,0 +1,453 @@
+/* ==========================================================================
+   GrowWell — dark jungle home page
+   Scoped to <body class="jungle-home"> so every other page is untouched.
+   ========================================================================== */
+
+body.jungle-home {
+  --bg: #0b1c23;
+  --bg-tint: #10262e;
+  --surface: #15313a;
+  --surface-2: #193a43;
+  --ink: #eef7f4;
+  --ink-soft: #d6e6e2;
+  --muted: #95acaa;
+  --line: rgba(180, 220, 216, .16);
+  --line-strong: rgba(180, 220, 216, .32);
+
+  --brand: #66b8b0;
+  --brand-ink: #a0ded4;
+  --brand-soft: #163c42;
+  --accent: #dda675;
+  --accent-ink: #f0c197;
+  --accent-soft: #36281f;
+  --sky: #82c6d0;
+  --sky-ink: #a7dbe2;
+  --sky-soft: #173840;
+  --gold: #d9b56f;
+  --danger: #eb917c;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, .25);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, .35);
+  --shadow-lg: 0 34px 80px -30px rgba(0, 0, 0, .8);
+
+  --font-display: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  --jg-panel: #10262e;
+  --jg-header-a: #1d5b63;
+  --jg-header-b: #2c767a;
+  --jg-line: rgba(206, 236, 231, .16);
+  --jg-text: #f0f8f5;
+  --jg-muted: #94abaa;
+  --jg-serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+
+  color: var(--ink);
+  background-color: #0b1c23;
+  background-image:
+    linear-gradient(180deg, rgba(8, 26, 32, .62), rgba(6, 19, 24, .88)),
+    linear-gradient(90deg, rgba(19, 67, 74, .32), rgba(9, 30, 37, .12)),
+    url("../images/jungle-leaves.png");
+  background-size: cover, cover, cover;
+  background-position: center, center, center;
+  background-attachment: fixed, fixed, fixed;
+  background-repeat: no-repeat;
+}
+
+body.jungle-home a { color: var(--brand-ink); }
+
+/* ---------- Centered panel ---------- */
+.jungle-home .jungle-hero { padding-block: clamp(1.25rem, 4vw, 3rem); }
+.jungle-home .jungle-wrap { max-width: 1020px; }
+
+.jungle-panel {
+  overflow: hidden;
+  border-radius: clamp(18px, 3vw, 30px);
+  background: var(--jg-panel);
+  border: 1px solid rgba(255, 255, 255, .09);
+  box-shadow: 0 45px 100px -35px rgba(0, 0, 0, .85), 0 0 0 1px rgba(0, 0, 0, .2);
+}
+
+/* ---------- Panel header ---------- */
+.jungle-home .jungle-header {
+  position: relative;
+  inset: auto;
+  z-index: 2;
+  min-height: clamp(68px, 9vw, 92px);
+  background: linear-gradient(120deg, var(--jg-header-a), var(--jg-header-b));
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+  backdrop-filter: none;
+  transition: none;
+}
+.jungle-home .jungle-header .header__inner {
+  gap: .35rem;
+  padding-inline: clamp(1.1rem, 3.4vw, 2.4rem);
+}
+.jungle-home .jungle-header .brand {
+  gap: .7rem;
+  margin-right: auto;
+}
+.jungle-home .jungle-header .brand__mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(150deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, .06));
+  border: 1px solid rgba(255, 255, 255, .35);
+  box-shadow: none;
+  color: #e8f7f2;
+}
+.jungle-home .jungle-header .brand__name {
+  font-family: var(--jg-serif);
+  font-size: .95rem;
+  font-weight: 500;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: #e6f5f1;
+}
+.jungle-home .jungle-header .brand__name span { color: #e6f5f1; }
+.jungle-home .jungle-header .nav { gap: .1rem; }
+.jungle-home .jungle-header .nav a {
+  min-height: 34px;
+  padding: .35rem .6rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 550;
+  letter-spacing: .02em;
+  color: #c6e0dd;
+}
+.jungle-home .jungle-header .nav a:hover { color: #fff; background: rgba(255, 255, 255, .1); }
+.jungle-home .jungle-header .nav a[aria-current="page"] {
+  color: #fff;
+  background: rgba(255, 255, 255, .17);
+}
+.jungle-home .jungle-header .header__tools { gap: .35rem; }
+.jungle-home .jungle-header .icon-btn {
+  background: rgba(255, 255, 255, .09);
+  border-color: rgba(255, 255, 255, .28);
+  color: #e6f5f1;
+}
+.jungle-home .theme-toggle { display: none; }
+.jungle-home .jungle-header .nav-toggle { width: 38px; height: 38px; }
+
+.jungle-cta {
+  display: inline-grid;
+  place-items: center;
+  min-width: 52px;
+  height: 34px;
+  padding-inline: .8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(230, 245, 241, .5);
+  color: #eaf7f3;
+  text-decoration: none;
+  font-size: .95rem;
+  line-height: 1;
+  letter-spacing: .16em;
+  transition: background .18s, border-color .18s;
+}
+.jungle-cta:hover { background: rgba(255, 255, 255, .12); border-color: #fff; color: #fff; }
+
+/* ---------- Hero photograph ---------- */
+.jungle-hero-media {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: clamp(380px, 54vw, 590px);
+  background: #0a1c22 url("../images/jungle-hero.jpg") center 46% / cover no-repeat;
+  isolation: isolate;
+}
+.jungle-hero-media::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(6, 22, 28, .84) 0%, rgba(7, 26, 32, .58) 52%, rgba(8, 28, 34, .22) 100%),
+    linear-gradient(0deg, rgba(9, 29, 36, .72) 0%, transparent 58%);
+}
+.jungle-hero-copy {
+  position: relative;
+  padding: clamp(2.5rem, 7vw, 4.75rem) clamp(1.5rem, 5.5vw, 4rem);
+  max-width: 860px;
+}
+.jungle-hero-copy h1 {
+  margin: 0;
+  font-family: var(--jg-serif);
+  font-size: clamp(3.6rem, 8.4vw, 6.4rem);
+  font-weight: 400;
+  line-height: .92;
+  letter-spacing: -.025em;
+  color: #fff;
+  text-shadow: 0 5px 28px rgba(0, 0, 0, .4);
+}
+
+/* ---------- Four circular topic links ---------- */
+.jungle-cats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(.5rem, 2vw, 1.5rem);
+  padding: clamp(1.75rem, 4vw, 2.75rem) clamp(1.25rem, 5vw, 3.5rem) clamp(1.5rem, 3vw, 2rem);
+}
+.jungle-cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+  text-decoration: none;
+  color: inherit;
+}
+.jungle-cat__icon {
+  width: clamp(62px, 8.5vw, 82px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(155deg, #2f7b7e, #1a535b);
+  border: 1px solid rgba(210, 240, 235, .22);
+  color: #e2f3ee;
+  box-shadow: 0 12px 24px -14px rgba(0, 0, 0, .8), inset 0 1px 0 rgba(255, 255, 255, .12);
+  transition: transform .22s var(--ease), box-shadow .22s, border-color .22s;
+}
+.jungle-cat__icon svg { width: 42%; height: 42%; }
+.jungle-cat:hover .jungle-cat__icon {
+  transform: translateY(-4px);
+  border-color: rgba(220, 245, 240, .5);
+  box-shadow: 0 18px 30px -14px rgba(0, 0, 0, .9);
+}
+.jungle-cat__label {
+  font-size: .72rem;
+  line-height: 1.35;
+  text-align: center;
+  color: var(--jg-muted);
+  transition: color .2s;
+}
+.jungle-cat:hover .jungle-cat__label { color: var(--jg-text); }
+
+/* ---------- About block ---------- */
+.jungle-about {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+  padding: 0 clamp(1.25rem, 5vw, 3.5rem) clamp(2rem, 5vw, 3rem);
+}
+.jungle-about h2 {
+  font-family: var(--jg-serif);
+  font-size: clamp(1.7rem, 3vw, 2.25rem);
+  font-weight: 500;
+  letter-spacing: -.01em;
+  margin-bottom: 1rem;
+  color: var(--jg-text);
+}
+.jungle-about p {
+  font-size: .83rem;
+  line-height: 1.85;
+  color: var(--jg-muted);
+  margin-bottom: .9rem;
+}
+.jungle-about__link {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .82rem;
+  font-weight: 600;
+  color: #addbd3;
+  text-decoration: none;
+}
+.jungle-about__link:hover { color: #fff; text-decoration: underline; }
+.jungle-about__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(.5rem, 1.5vw, 1rem);
+  align-items: start;
+}
+.jungle-about__photos img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, .12);
+  background: #16333a;
+}
+.jungle-about__photos img:last-child { margin-top: clamp(1rem, 3vw, 2.25rem); }
+
+/* ---------- Existing sections, tuned for the dark page ---------- */
+.jungle-home .section--tint { background: rgba(9, 28, 35, .58); }
+.jungle-home .btn--primary {
+  background: linear-gradient(155deg, #3d9893, #22636b);
+  color: #f3fbfa;
+  box-shadow: 0 10px 24px -13px rgba(102, 184, 176, .6);
+}
+.jungle-home .hero-mini .pill,
+.jungle-home .pill { background: var(--brand-soft); color: var(--brand-ink); }
+.jungle-home .card,
+.jungle-home .stats > div,
+.jungle-home .step { background: rgba(21, 49, 58, .82); }
+.jungle-home .path { background: rgba(21, 49, 58, .82); }
+.jungle-home .path::after { background: radial-gradient(circle, rgba(102, 184, 176, .2), transparent 70%); }
+.jungle-home .eyebrow { color: var(--brand-ink); }
+
+.jungle-home .footer {
+  background: #07161b;
+  color: #b3c7c3;
+  border-top: 1px solid rgba(255, 255, 255, .08);
+}
+.jungle-home .footer a { color: #d7e9e5; }
+.jungle-home .footer h3,
+.jungle-home .footer h4 { color: #f0f8f5; }
+.jungle-home .footer .brand__name span { color: #9fd7cf; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 940px) {
+  .jungle-home .nav {
+    top: 0;
+    background: #14343d;
+    border-bottom: 1px solid var(--jg-line);
+  }
+}
+@media (max-width: 720px) {
+  .jungle-cats { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 1.5rem; }
+  .jungle-about { grid-template-columns: 1fr; }
+  .jungle-about__photos { max-width: 460px; }
+  .jungle-hero-copy h1 { font-size: clamp(3rem, 13vw, 4.4rem); }
+}
+@media (max-width: 520px) {
+  .jungle-home .jungle-header .brand__name { font-size: .78rem; letter-spacing: .16em; }
+  .jungle-cta { display: none; }
+  .jungle-hero-media { min-height: 360px; }
+  .jungle-about__photos img { border-radius: 12px; }
+}
+
+/* ==========================================================================
+   Inner pages — same jungle mood, with its own friendly details
+   ========================================================================== */
+
+/* Sticky top bar on every page except the home panel */
+body.jungle-home > .header {
+  background: linear-gradient(120deg, rgba(29, 91, 99, .94), rgba(44, 118, 122, .9));
+  backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+body.jungle-home > .header.is-stuck { border-bottom-color: rgba(255, 255, 255, .24); }
+body.jungle-home > .header .brand__mark {
+  border-radius: 50%;
+  background: linear-gradient(150deg, rgba(255, 255, 255, .24), rgba(255, 255, 255, .06));
+  border: 1px solid rgba(255, 255, 255, .35);
+  box-shadow: none;
+}
+body.jungle-home > .header .brand__name {
+  font-family: var(--jg-serif);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: #e6f5f1;
+}
+body.jungle-home > .header .brand__name span { color: #e6f5f1; }
+body.jungle-home > .header .nav a { color: #c6e0dd; }
+body.jungle-home > .header .nav a:hover { color: #fff; background: rgba(255, 255, 255, .1); }
+body.jungle-home > .header .nav a[aria-current="page"] {
+  color: #fff;
+  background: rgba(255, 255, 255, .17);
+}
+body.jungle-home > .header .icon-btn {
+  background: rgba(255, 255, 255, .09);
+  border-color: rgba(255, 255, 255, .28);
+  color: #e6f5f1;
+}
+
+/* Forest banner for inner pages */
+.jungle-home .page-head {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(2.75rem, 6vw, 4.5rem) clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid var(--jg-line);
+  background:
+    linear-gradient(90deg, rgba(7, 26, 32, .95) 0%, rgba(9, 31, 38, .8) 58%, rgba(10, 35, 42, .58) 100%),
+    #0a2027 url("../images/jungle-hero.jpg") center 42% / cover no-repeat;
+}
+.jungle-home .page-head::after {
+  content: "";
+  position: absolute;
+  right: clamp(1rem, 6vw, 7rem);
+  top: 50%;
+  width: clamp(130px, 20vw, 260px);
+  aspect-ratio: 1.55;
+  transform: translateY(-50%) rotate(-18deg);
+  border-radius: 0 100% 0 100%;
+  background: linear-gradient(140deg, rgba(102, 184, 176, .2), rgba(102, 184, 176, .03));
+  border: 1px solid rgba(170, 226, 216, .18);
+  pointer-events: none;
+}
+.jungle-home .page-head .wrap { position: relative; z-index: 1; }
+.jungle-home .page-head h1 {
+  font-family: var(--jg-serif);
+  font-size: clamp(2.7rem, 6vw, 4.4rem);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: #fff;
+}
+.jungle-home .page-head h1::after {
+  content: "";
+  display: block;
+  width: 76px;
+  height: 3px;
+  margin-top: 1.1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #66b8b0, transparent);
+}
+.jungle-home .page-head .lede { color: #bdd2ce; }
+.jungle-home .page-head .breadcrumb { margin-bottom: .6rem; }
+.jungle-home .page-head .breadcrumb a { color: #a3c8c2; }
+.jungle-home .page-head .eyebrow { color: #9dd8ce; }
+
+/* A little friendly nudge at the top of each guide */
+.jungle-note {
+  display: flex;
+  width: fit-content;
+  max-width: 100%;
+  align-items: center;
+  gap: .55rem;
+  margin: 0 0 1.1rem;
+  padding: .5rem .9rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .18);
+  color: #dcece8;
+  font-size: .84rem;
+  line-height: 1.4;
+}
+.jungle-note span { font-size: 1rem; line-height: 1; }
+
+/* Softer, friendlier components on dark surfaces */
+.jungle-home .btn--ghost {
+  background: rgba(255, 255, 255, .05);
+  border-color: rgba(255, 255, 255, .24);
+  color: var(--ink);
+}
+.jungle-home .btn--ghost:hover { border-color: var(--brand); color: var(--brand-ink); }
+.jungle-home .callout { background: rgba(102, 184, 176, .12); border-color: rgba(102, 184, 176, .3); }
+.jungle-home .callout--warn { background: rgba(221, 166, 117, .12); border-color: rgba(221, 166, 117, .32); }
+.jungle-home .callout--info { background: rgba(130, 198, 208, .12); border-color: rgba(130, 198, 208, .32); }
+.jungle-home .toc,
+.jungle-home .doctor,
+.jungle-home .locator,
+.jungle-home .filterbar { background: rgba(21, 49, 58, .82); }
+.jungle-home .table-wrap th { background: rgba(255, 255, 255, .05); color: var(--brand-ink); }
+.jungle-home .to-top { background: rgba(21, 49, 58, .92); }
+
+@media (max-width: 940px) {
+  body.jungle-home > .header .nav {
+    top: 68px;
+    background: #14343d;
+    border-bottom: 1px solid var(--jg-line);
+  }
+}
+@media (max-width: 820px) {
+  .jungle-home .split { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 520px) {
+  body.jungle-home > .header .brand__name { font-size: .9rem; letter-spacing: .12em; }
+  .jungle-home .page-head::after { opacity: .5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .jungle-cat__icon { transition: none; }
+}
