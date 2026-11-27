@@ -1,4 +1,4 @@
-/* GrowWell plant library data
+/* Gardening plant library data
    difficulty: 1 = easy, 2 = moderate, 3 = demanding
    light / water / height are short human-readable strings. */
 window.PLANTS = [

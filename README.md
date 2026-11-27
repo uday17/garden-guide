@@ -1,4 +1,4 @@
-# 🌱 GrowWell — The Complete Gardening Handbook
+# 🌱 Gardening — The Complete Gardening Handbook
 
 A free, richly designed static website that takes someone from *“I have never grown anything”* to
 confident, season-aware gardener. Built with plain HTML, CSS and JavaScript — no build step, no

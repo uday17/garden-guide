@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GrowWell — Location-based plant suggestions
+   Gardening — Location-based plant suggestions
    Free public endpoints, no API keys. Location & weather are never stored.
    ========================================================================== */
 (function () {

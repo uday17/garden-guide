@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GrowWell — Plant Health Assistant
+   Gardening — Plant Health Assistant
    On-device photo colour analysis + a small rule-based care expert.
    No uploads, no API calls, no personal data leaves the browser.
    ========================================================================== */

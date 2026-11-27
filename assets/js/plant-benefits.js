@@ -1,4 +1,4 @@
-/* GrowWell — benefits and practical uses for every plant in the library. */
+/* Gardening — benefits and practical uses for every plant in the library. */
 window.PLANT_BENEFITS = {
   "Snake Plant": "A nearly indestructible houseplant that tolerates low light and missed waterings. It releases oxygen at night, making it a popular bedroom plant.",
   "Golden Pothos": "Fast trailing greenery that softens shelves and masks empty corners. Cuttings root in water, so one plant quickly becomes many.",

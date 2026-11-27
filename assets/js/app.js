@@ -1,5 +1,5 @@
 /* ==========================================================================
-   GrowWell — site behaviour
+   Gardening — site behaviour
    Progressive enhancement: every feature degrades gracefully without JS.
    ========================================================================== */
 (function () {
@@ -24,10 +24,10 @@
     }
   };
 
-  const KEY_PLANTS = "growwell.savedPlants";
-  const KEY_THEME = "growwell.theme";
-  const KEY_TASKS = "growwell.tasks";
-  const KEY_NOTES = "growwell.notes";
+  const KEY_PLANTS = "gardening.savedPlants";
+  const KEY_THEME = "gardening.theme";
+  const KEY_TASKS = "gardening.tasks";
+  const KEY_NOTES = "gardening.notes";
 
   const $ = (sel, root) => (root || document).querySelector(sel);
   const $$ = (sel, root) => Array.from((root || document).querySelectorAll(sel));
