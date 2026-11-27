@@ -397,6 +397,88 @@
       </div></details>
     </div>
 
+    <!-- ================= PLANT HEALTH ASSISTANT ================= -->
+    <section class="doctor" id="plant-doctor" aria-labelledby="doctor-title">
+      <div class="doctor__head">
+        <span class="eyebrow">Plant health assistant</span>
+        <h3 id="doctor-title">Send a photo, get a care plan</h3>
+        <p class="small muted mb-0">Add a plant photo, tell me what you see, and I'll check the leaf colours and suggest the most likely cause and next steps. Everything runs in your browser — your photo is never uploaded.</p>
+      </div>
+
+      <div class="doctor__chat" id="doctorChat" role="log" aria-live="polite" aria-label="Plant health conversation">
+        <div class="msg msg--bot">
+          <span class="msg__avatar" aria-hidden="true">🌿</span>
+          <div class="msg__body">
+            <p>Hi! Add a photo of the affected leaf or plant, then answer the four quick questions. I'll look for yellowing, browning and dark spots and suggest what to do next.</p>
+          </div>
+        </div>
+      </div>
+
+      <form class="doctor__form" id="doctorForm">
+        <label class="doctor__drop" id="doctorDrop" for="doctorImage">
+          <input type="file" id="doctorImage" accept="image/*" aria-label="Upload a plant photo">
+          <strong>📷 Drop a plant photo here, or click to choose one</strong>
+          <span class="small muted" style="display:block">JPG, PNG or WebP · up to 12 MB · processed only on your device</span>
+          <img class="doctor__preview" id="doctorPreview" alt="Preview of the uploaded plant photo" hidden>
+        </label>
+
+        <div class="doctor__row">
+          <div class="doctor__field">
+            <label for="doctorPlant">Plant (optional)</label>
+            <select class="select" id="doctorPlant"><option value="">Not sure</option></select>
+          </div>
+          <div class="doctor__field">
+            <label for="doctorPlace">Where is it growing?</label>
+            <select class="select" id="doctorPlace">
+              <option value="indoor">Indoors</option>
+              <option value="outdoor">Outdoors in a bed</option>
+              <option value="balcony">Balcony or patio pot</option>
+            </select>
+          </div>
+          <div class="doctor__field">
+            <label for="doctorLight">How much light?</label>
+            <select class="select" id="doctorLight">
+              <option value="indirect">Bright indirect</option>
+              <option value="direct">Direct sun, 6+ hours</option>
+              <option value="low">Low light</option>
+            </select>
+          </div>
+          <div class="doctor__field">
+            <label for="doctorWater">How often do you water?</label>
+            <select class="select" id="doctorWater">
+              <option value="2-3">Every 2–3 days</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="rarely">Rarely / every 2+ weeks</option>
+            </select>
+          </div>
+          <div class="doctor__field">
+            <label for="doctorSymptom">Main symptom</label>
+            <select class="select" id="doctorSymptom">
+              <option value="yellow">Yellow leaves</option>
+              <option value="brownTips">Brown, crispy tips</option>
+              <option value="wiltWet">Wilting, soil is wet</option>
+              <option value="wiltDry">Wilting, soil is dry</option>
+              <option value="spotsSoft">Dark soft spots</option>
+              <option value="pests">Tiny insects or webbing</option>
+              <option value="leggy">Pale, stretched growth</option>
+              <option value="noGrowth">No new growth</option>
+              <option value="none">No problem — just checking</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="doctor__status" id="doctorStatus" role="status" aria-live="polite"></p>
+        <button class="btn btn--primary" type="submit">Analyse my plant →</button>
+      </form>
+
+      <form class="doctor__ask" id="doctorAsk">
+        <label class="sr-only" for="doctorQuestion">Ask a follow-up question</label>
+        <input class="input" id="doctorQuestion" type="text" placeholder="Ask a follow-up: watering, light, pests…" autocomplete="off">
+        <button class="btn btn--ghost btn--sm" type="submit">Ask</button>
+      </form>
+    </section>
+
     <div class="card" style="margin-top:2.5rem;background:linear-gradient(140deg,var(--brand-soft),var(--surface) 70%)">
       <h3 style="margin-bottom:.4rem">Ready for the next level?</h3>
       <p class="small muted">Propagation, pruning theory, composting systems, IPM and growing under cover.</p>
@@ -424,6 +506,8 @@
 </footer>
 
 <button class="to-top" id="toTop" type="button" aria-label="Back to top"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg></button>
+<script src="assets/js/plants-data.js" defer></script>
+<script src="assets/js/plant-doctor.js" defer></script>
 <script src="assets/js/app.js" defer></script>
 </body>
 </html>
