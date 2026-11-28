@@ -13,7 +13,7 @@
     { id: "snake",    name: "Snake plant",  image: "assets/images/snake-plant.jpg",        every: 7,  water: "Weekly",         soil: { loam: 40, compost: 15, drainage: 45 }, tip: "Gritty, fast-draining soil. Too much water is its undoing." },
     { id: "lavender", name: "Lavender",     image: "assets/images/lavender.jpg",           every: 7,  water: "Weekly",         soil: { loam: 30, compost: 10, drainage: 60 }, tip: "Loves lean, sharp, well-drained soil and dry spells." },
     { id: "aloe",     name: "Aloe vera",    image: "assets/images/aloe-vera.png",          every: 14, water: "Every 2 weeks",  soil: { loam: 25, compost: 15, drainage: 60 }, tip: "Let the soil dry out completely before watering again." },
-    { id: "cactus",   name: "Prickly pear", image: "assets/images/prickly-pear-cactus.png", every: 14, water: "Every 2 weeks",  soil: { loam: 25, compost: 10, drainage: 65 }, tip: "A cactus in daily water will rot. Go easy on the watering can." }
+    { id: "bougainvillea", name: "Bougainvillea", image: "assets/images/bougainvillea.jpg", every: 3, water: "Every 3 days", soil: { loam: 45, compost: 10, drainage: 45 }, tip: "Loves sun and lean, sharp-draining soil — too much compost gives leaves instead of flowers." }
   ];
 
   const TOTAL_DAYS = 21;
