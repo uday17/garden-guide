@@ -676,7 +676,7 @@ window.PLANTS = [
     glyph: "🌳",
     tint: "#dcebd9",
     tip: "Clip in late spring and again in late summer for crisp edges. Shear lightly — cutting into old wood leaves bare patches."
-  }
+  },
   /* ---------------- Indoor ---------------- */
   {
     name: "Chinese Money Plant",
