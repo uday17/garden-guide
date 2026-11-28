@@ -73,6 +73,10 @@
           <b id="dayCount">1</b>
           <small id="daySub">day 0 of 21</small>
         </div>
+        <div class="game-weather" id="weatherBox" aria-live="polite">
+          <span class="game-weather__icon" id="weatherIcon" aria-hidden="true">☀️</span>
+          <span class="game-weather__text"><small>Today's weather</small><b id="weatherName">Sunny</b></span>
+        </div>
         <p class="game-hint" id="gameHint" role="status" aria-live="polite">Pick a plant, mix the soil, then plant it in a pot.</p>
         <div class="game-actions">
           <button class="icon-btn sound-toggle" id="soundBtn" type="button" aria-pressed="true" aria-label="Mute sounds" title="Sound on">🔊</button>
@@ -95,6 +99,8 @@
         </div>
       </div>
 
+      <div class="game-timeline" id="gameTimeline" aria-label="21 day progress"></div>
+
       <div class="game-main">
         <section class="game-garden" aria-labelledby="gardenTitle">
           <div class="game-garden__head">
@@ -103,6 +109,11 @@
           </div>
           <div class="plot-tabs" id="plotTabs" role="group" aria-label="Choose which plot to view"></div>
           <div class="plot-grid" id="plots"></div>
+          <div class="game-diary" aria-labelledby="diaryTitle">
+            <h3 id="diaryTitle"><span aria-hidden="true">📖</span> Garden diary</h3>
+            <ul id="diaryList"></ul>
+          </div>
+          <div class="game-badges" id="badgeList" aria-label="Achievements"></div>
           <p class="game-footnote">Click a plot or its tab to choose which pot you are working on. Days and watering advance only for that plot — the other pots stay on their own day. “All pots” shows them together.</p>
         </section>
 

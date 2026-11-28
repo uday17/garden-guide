@@ -273,8 +273,84 @@
 @media (max-width: 900px) {
   .game-main { grid-template-columns: 1fr; }
 }
+/* ---------- Weather, timeline, diary and badges ---------- */
+.game-weather {
+  display: flex; align-items: center; gap: .55rem;
+  padding: .4rem .8rem .4rem .5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .16);
+}
+.game-weather__icon { font-size: 1.35rem; line-height: 1; }
+.game-weather__text { display: flex; flex-direction: column; line-height: 1.15; }
+.game-weather__text small { font-size: .64rem; color: #a8c7c1; text-transform: uppercase; letter-spacing: .08em; }
+.game-weather__text b { font-size: .84rem; color: #f0f8f5; font-weight: 600; }
+
+.game-timeline {
+  display: grid; grid-template-columns: repeat(21, minmax(0, 1fr));
+  gap: 3px; padding: 0 clamp(1rem, 3vw, 2rem) .9rem;
+}
+.game-timeline i {
+  display: grid; place-items: center; height: 14px;
+  border-radius: 999px; background: rgba(255, 255, 255, .1);
+  font-size: 9px; font-style: normal; line-height: 1;
+  transition: background .25s, box-shadow .25s;
+}
+.game-timeline i.done { background: rgba(102, 184, 176, .55); }
+.game-timeline i.today { background: #66b8b0; box-shadow: 0 0 0 2px rgba(102, 184, 176, .3); }
+
+.game-diary {
+  margin-top: 1.25rem; padding: .9rem 1rem;
+  border: 1px solid var(--jg-line); border-radius: 14px;
+  background: rgba(9, 28, 35, .5);
+}
+.game-diary h3 { margin: 0 0 .6rem; font-size: .92rem; font-weight: 650; color: #e2f1ec; }
+.game-diary ul { list-style: none; margin: 0; padding: 0; display: grid; gap: .35rem; max-height: 168px; overflow-y: auto; }
+.game-diary li { display: flex; gap: .5rem; font-size: .78rem; line-height: 1.45; color: #c2d8d3; }
+.game-diary li b { color: #9dd8ce; white-space: nowrap; font-weight: 650; }
+
+.game-badges { display: flex; flex-wrap: wrap; gap: .45rem; margin-top: .9rem; }
+.game-badge {
+  display: inline-flex; align-items: center; gap: .35rem;
+  padding: .32rem .65rem; border-radius: 999px;
+  border: 1px solid var(--jg-line); background: rgba(255, 255, 255, .04);
+  font-size: .72rem; color: var(--jg-muted);
+  opacity: .5; filter: grayscale(1); transition: opacity .3s, filter .3s, border-color .3s;
+}
+.game-badge.is-earned {
+  opacity: 1; filter: none; color: #eff8f5;
+  border-color: #66b8b0; background: rgba(102, 184, 176, .16);
+}
+
+/* little moments of magic */
+.plot.is-watering .plot__photo,
+.plot.is-rainy .plot__photo { animation: plant-bob .7s ease-in-out; }
+.plot.is-watering::after {
+  content: "💧  💧"; position: absolute; top: 18%; left: 50%;
+  transform: translateX(-50%); font-size: 1.1rem; pointer-events: none;
+  animation: drop-fall .9s ease-out forwards;
+}
+.plot.is-rainy::after {
+  content: "🌧️"; position: absolute; top: 12%; right: 14%;
+  font-size: 1.3rem; pointer-events: none; animation: drop-fall .9s ease-out forwards;
+}
+.plot.is-sunny::after {
+  content: "☀️"; position: absolute; top: 12%; right: 12%;
+  font-size: 1.4rem; pointer-events: none; animation: sun-pop .9s ease-out forwards;
+}
+.plot.is-sparkle::after {
+  content: "✨ 🌿"; position: absolute; top: 16%; left: 50%;
+  transform: translateX(-50%); font-size: 1.1rem; pointer-events: none;
+  animation: sun-pop .9s ease-out forwards;
+}
+@keyframes plant-bob { 0%,100% { transform: scale(var(--growth, .7)) rotate(0); } 50% { transform: scale(var(--growth, .7)) rotate(-3deg); } }
+@keyframes drop-fall { from { opacity: 0; transform: translateY(-14px); } 30% { opacity: 1; } to { opacity: 0; transform: translateY(34px); } }
+@keyframes sun-pop { from { opacity: 0; transform: scale(.6); } 40% { opacity: 1; transform: scale(1.1); } to { opacity: 0; transform: scale(1); } }
+
 @media (max-width: 520px) {
   .plot-grid { grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); }
   .game-actions { width: 100%; }
   .game-actions .btn { flex: 1 1 auto; }
+  .game-weather { flex: 1 1 100%; width: fit-content; }
+  .game-timeline i { font-size: 0; }
 }

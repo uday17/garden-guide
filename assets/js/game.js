@@ -16,6 +16,22 @@
     { id: "bougainvillea", name: "Bougainvillea", image: "assets/images/bougainvillea.jpg", every: 3, water: "Every 3 days", soil: { loam: 45, compost: 10, drainage: 45 }, tip: "Loves sun and lean, sharp-draining soil — too much compost gives leaves instead of flowers." }
   ];
 
+  const WEATHER = [
+    { id: "sunny",  name: "Sunny",     icon: "☀️", delta: 0,   weight: 45 },
+    { id: "cloudy", name: "Cloudy",    icon: "⛅", delta: -4,  weight: 25 },
+    { id: "rainy",  name: "Rainy",     icon: "🌧️", delta: 18,  weight: 18 },
+    { id: "heat",   name: "Heatwave",  icon: "🔥", delta: -14, weight: 12 }
+  ];
+
+  const BADGES = [
+    { id: "first",  icon: "🌱", label: "First Sprout" },
+    { id: "water",  icon: "💧", label: "Water Wizard" },
+    { id: "rain",   icon: "🌧️", label: "Rain Dancer" },
+    { id: "green",  icon: "🌿", label: "Green Thumb" },
+    { id: "dry",    icon: "🌵", label: "Dry-Root Pro" },
+    { id: "master", icon: "🏆", label: "Master Gardener" }
+  ];
+
   const TOTAL_DAYS = 21;
   const KEYS = ["loam", "compost", "drainage"];
   const $ = (sel) => document.querySelector(sel);
@@ -31,7 +47,10 @@
     selectedPlant: null,
     mix: { loam: 40, compost: 30, drainage: 30 },
     plots: [null, null, null],
-    finished: false
+    finished: false,
+    diary: [],
+    badges: {},
+    waterCount: 0
   };
 
   const els = {
@@ -51,7 +70,12 @@
     weekBtn: $("#weekBtn"),
     resetBtn: $("#resetBtn"),
     soundBtn: $("#soundBtn"),
-    balancedBtn: $("#balancedBtn")
+    balancedBtn: $("#balancedBtn"),
+    weatherIcon: $("#weatherIcon"),
+    weatherName: $("#weatherName"),
+    timeline: $("#gameTimeline"),
+    diary: $("#diaryList"),
+    badges: $("#badgeList")
   };
 
   if (!els.plots || !els.picker) return;
@@ -73,6 +97,55 @@
   function say(message) { els.hint.textContent = message; }
 
   function selectedPlotData() { return state.plots[state.selectedPlot]; }
+
+  function esc(value) {
+    return String(value == null ? "" : value).replace(/[&<>"']/g, (c) => ({
+      "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[c]));
+  }
+
+  function rollWeather() {
+    const total = WEATHER.reduce((sum, w) => sum + w.weight, 0);
+    let r = Math.random() * total;
+    for (const w of WEATHER) { r -= w.weight; if (r <= 0) return w; }
+    return WEATHER[0];
+  }
+
+  function log(icon, text, plot) {
+    state.diary.unshift({
+      day: plot ? plot.day : 0,
+      plot: plot ? state.plots.indexOf(plot) + 1 : null,
+      icon: icon,
+      text: text
+    });
+    if (state.diary.length > 12) state.diary.pop();
+  }
+
+  function earn(id) {
+    if (state.badges[id]) return;
+    const badge = BADGES.find((b) => b.id === id);
+    if (!badge) return;
+    state.badges[id] = true;
+    log(badge.icon, `Badge unlocked: ${badge.label}`);
+    sound("select");
+  }
+
+  function growthStage(p) {
+    if (!p) return "";
+    if (p.dead) return "Gone";
+    if (p.day >= TOTAL_DAYS) return "Blooming";
+    if (p.day >= 14) return "Mature";
+    if (p.day >= 7) return "Growing";
+    if (p.day >= 3) return "Sprout";
+    return "Seed";
+  }
+
+  function animatePlot(cls) {
+    const el = els.plots.querySelector(".plot.is-active") || els.plots.querySelector(".plot");
+    if (!el) return;
+    el.classList.add(cls);
+    window.setTimeout(() => el.classList.remove(cls), 950);
+  }
 
   function syncDayCounter() {
     const p = selectedPlotData();
@@ -209,7 +282,7 @@
             <span class="plot__soil"></span>
           </span>
           <span class="plot__status">${planted ? plotStatus(p) : "Empty pot"}</span>
-          <span class="plot__meta">${planted ? `${p.plant.name} · day ${p.day}/${TOTAL_DAYS}` : "Ready for a plant"}</span>
+          <span class="plot__meta">${planted ? `${p.plant.name} · day ${p.day}/${TOTAL_DAYS} · ${growthStage(p)}` : "Ready for a plant"}</span>
           ${bars}
           ${planted ? `<button class="plot__clear" type="button" data-clear="${i}" aria-label="Clear plot ${i + 1}">×</button>` : ""}
         </div>`;
@@ -219,6 +292,47 @@
     els.waterBtn.textContent = `💧 Water plot ${state.selectedPlot + 1} only`;
     syncDayCounter();
     renderTabs();
+    renderWeather();
+    renderTimeline();
+    renderDiary();
+    renderBadges();
+  }
+
+  function renderWeather() {
+    const p = selectedPlotData();
+    const last = p && p.weatherLog && p.weatherLog.length
+      ? WEATHER.find((w) => w.id === p.weatherLog[p.weatherLog.length - 1])
+      : null;
+    if (els.weatherIcon) els.weatherIcon.textContent = last ? last.icon : "🌤️";
+    if (els.weatherName) els.weatherName.textContent = last ? last.name : "A fine day";
+  }
+
+  function renderTimeline() {
+    if (!els.timeline) return;
+    const p = selectedPlotData();
+    let html = "";
+    for (let i = 1; i <= TOTAL_DAYS; i++) {
+      const done = p && p.day >= i;
+      const today = p && p.day + 1 === i;
+      const id = p && p.weatherLog && p.weatherLog[i - 1];
+      const w = id ? WEATHER.find((x) => x.id === id) : null;
+      html += `<i class="${done ? "done" : ""} ${today ? "today" : ""}" title="Day ${i}">${w ? w.icon : ""}</i>`;
+    }
+    els.timeline.innerHTML = html;
+  }
+
+  function renderDiary() {
+    if (!els.diary) return;
+    els.diary.innerHTML = state.diary.length
+      ? state.diary.map((e) => `<li><b>Day ${e.day}${e.plot ? " · Plot " + e.plot : ""}</b><span>${e.icon} ${esc(e.text)}</span></li>`).join("")
+      : '<li><b>—</b><span>Your garden diary begins when you plant something.</span></li>';
+  }
+
+  function renderBadges() {
+    if (!els.badges) return;
+    els.badges.innerHTML = BADGES.map((b) => `
+      <span class="game-badge${state.badges[b.id] ? " is-earned" : ""}" title="${b.label}">${b.icon} ${b.label}</span>
+    `).join("");
   }
 
   function selectPlot(i) {
@@ -277,22 +391,27 @@
       health: 100,
       moisture: 20,
       day: 0,
-      dead: false
+      dead: false,
+      weatherLog: []
     };
     state.view = state.selectedPlot;
     state.finished = false;
     els.result.hidden = true;
     els.result.innerHTML = "";
     sound("plant");
+    log("🌱", `${plant.name} found a home in plot ${state.selectedPlot + 1}.`, state.plots[state.selectedPlot]);
+    earn("first");
     renderPlots();
     say(`${plant.name} planted in plot ${state.selectedPlot + 1}. Water now feeds this pot only.`);
   }
 
   /* ---------- simulation ---------- */
-  function simulatePlotDay(p, watered) {
-    if (!p) return;
-    if (p.dead) return;
-    p.moisture = clamp(p.moisture + (watered ? 45 : -30), 0, 100);
+  function simulatePlotDay(p, watered, weather) {
+    if (!p || p.dead) return;
+    p.moisture = clamp(p.moisture + (watered ? 45 : -30) + weather.delta, 0, 100);
+    if (!p.weatherLog) p.weatherLog = [];
+    p.weatherLog.push(weather.id);
+    if (p.weatherLog.length > TOTAL_DAYS) p.weatherLog.shift();
 
       const [lo, hi] = moistureBand(p.plant.every);
       let stress = 0;
@@ -329,12 +448,29 @@
     }
 
     sound(watered ? "water" : "skip");
+    if (watered) {
+      state.waterCount += 1;
+      if (state.waterCount >= 5) earn("water");
+    }
+
     const count = clamp(Math.round(Number(days) || 1), 1, TOTAL_DAYS - p.day);
     let stepped = 0;
+    let lastWeather = WEATHER[0];
     for (let i = 0; i < count && p.day < TOTAL_DAYS; i++) {
       p.day += 1;
-      simulatePlotDay(p, watered && i === 0);
+      const wasDead = p.dead;
+      lastWeather = rollWeather();
+      simulatePlotDay(p, watered && i === 0, lastWeather);
+      log(lastWeather.icon, `${lastWeather.name} weather over plot ${state.selectedPlot + 1}.`, p);
+      if (lastWeather.id === "rainy") earn("rain");
+      if (!wasDead && p.dead) log("🥀", `${p.plant.name} did not make it.`, p);
+      else if (!p.dead && p.health >= 95 && p.day >= 10) earn("green");
       stepped += 1;
+    }
+
+    animatePlot(watered ? "is-watering" : (lastWeather.id === "rainy" ? "is-rainy" : "is-sunny"));
+    if (!p.dead && p.health >= 90 && Math.random() < .35) {
+      window.setTimeout(() => animatePlot("is-sparkle"), 550);
     }
 
     renderPlots();
@@ -365,6 +501,12 @@
         return `<li><strong>${p.plant.name}</strong> ${verdict} — health ${Math.round(p.health)}%</li>`;
       }).join("");
       const survived = planted.filter((p) => !p.dead && p.health >= 35).length;
+      if (survived === planted.length) earn("master");
+      planted.forEach((p) => {
+        if (!p.dead && p.health >= 35 && ["snake", "aloe"].includes(p.plant.id)) earn("dry");
+      });
+      log("🏁", `Three weeks later: ${survived} of ${planted.length} plants made it.`);
+      renderPlots();
       sound(survived >= Math.ceil(planted.length / 2) ? "win" : "fail");
       els.result.innerHTML = `
         <h2>Three weeks later…</h2>
@@ -385,6 +527,9 @@
     state.view = 0;
     state.selectedPlant = null;
     state.mix = { loam: 40, compost: 30, drainage: 30 };
+    state.diary = [];
+    state.badges = {};
+    state.waterCount = 0;
     els.result.hidden = true;
     els.result.innerHTML = "";
     els.picker.querySelectorAll(".plant-option").forEach((el) => el.setAttribute("aria-pressed", "false"));
