@@ -1,12 +1,12 @@
 /* ==========================================================================
-   GrowWell — Plant Passport
+   Gardening — Plant Passport
    Each plant is remembered with the student who brought it.
    Entries are stored privately in the browser (localStorage).
    ========================================================================== */
 (function () {
   "use strict";
 
-  const KEY = "growwell-plant-passports-v1";
+  const KEY = "gardening-plant-passports-v1";
   const $ = (sel) => document.querySelector(sel);
   const xmlns = "http://www.w3.org/2000/svg";
 
