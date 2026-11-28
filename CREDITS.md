@@ -80,5 +80,7 @@ Click a filename to see the original file page, author and full licence terms.
 | medium-pumice | [Pumice stone detail444.jpg](<https://commons.wikimedia.org/wiki/File:Pumice_stone_detail444.jpg>) | Benjamint444 | CC BY-SA 3.0 |
 | medium-worm-castings | [Sifted vermicompost vermicast.png](<https://commons.wikimedia.org/wiki/File:Sifted_vermicompost_vermicast.png>) | Renatotcm | CC BY-SA 4.0 |
 
+Additional photos for the expanded 100+ plant library are sourced from [Wikimedia Commons](https://commons.wikimedia.org/wiki/Category:Plants) under their respective free licences; each image's author and licence are listed on its Commons file page.
+
 Photos are used under their respective free licences (CC BY-SA, CC BY, public domain, etc.).
 If you reuse these images elsewhere, follow the licence linked on each file page.

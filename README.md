@@ -15,7 +15,7 @@ framework, no tracking.
 | `index.html` | Learning paths, the six pillars of plant care, a five-step quick start |
 | `basics.html` | Light, water, pots and tools, potting your first plant, first four weeks, climate zones, glossary |
 | `soil.html` | Texture, six ground soils with %, pH, compost, **9 potting media with indoor/outdoor percentages**, mixes and amendments |
-| `plants.html` | Filterable library of **50+ plants** — indoor, climbers & creepers, succulents, herbs, vegetables, flowers, fruit, trees & shrubs |
+| `plants.html` | Filterable library of **100+ plants** — indoor, climbers & creepers, succulents, herbs, vegetables, flowers, fruit, trees & shrubs |
 | `india-states.html` | State flower and state tree of all 28 Indian states and 8 union territories, searchable by region |
 | `care.html` | Watering masterclass, feeding (NPK), pruning techniques, repotting, pest & disease table, five-season calendar, symptom-based troubleshooting |
 | `advanced.html` | Propagation, pruning as design, integrated pest management, soil food web, watering systems, growing under cover, hydroponics, record keeping |
@@ -29,8 +29,8 @@ framework, no tracking.
 - **Seasonal calendar** with accessible tabs (Spring / Summer / Monsoon / Autumn / Winter).
 - **Location plant finder** on the Care page — uses browser geolocation or a city/landmark search with free Open-Meteo weather and OpenStreetMap place lookup (no keys, nothing stored), then ranks plants for the current temperature.
 - **Plant Health Assistant** on the Care page — upload a photo, answer four questions, and get an on-device colour analysis plus a likely cause, action plan and guide links. Follow-up chat answers common care questions. Nothing is uploaded.
-- **Benefit notes** — every one of the 55 plants has a “Benefits & uses” entry, shown in the library and on home-page previews.
-- **Plant photographs** — all 55 plants have a local, optimised photo with an inline source/licence link; full attribution in `CREDITS.md`.
+- **Benefit notes** — every one of the 115 plants has a “Benefits & uses” entry, shown in the library and on home-page previews.
+- **Plant photographs** — all 115 plants have a local, optimised photo with an inline source/licence link; full attribution in `CREDITS.md`.
 - **Interactive planner** — progress bar, checklists, wishlist and autosaving notes.
 - **Dark / light theme** that respects `prefers-color-scheme` and remembers your choice.
 - **Responsive** from 320 px phones to wide desktops, with a collapsible mobile nav.
@@ -57,7 +57,7 @@ garden-guide/
 │   ├── images/          # 55 locally stored plant photos (600 px)
 │   └── js/
 │       ├── app.js          # Theme, nav, filters, tabs, planner
-│       ├── plant-benefits.js # Benefits and uses for all 55 plants
+│       ├── plant-benefits.js # Benefits and uses for all 115 plants
 │       ├── local-plants.js # Location + temperature plant finder
 │       ├── plant-doctor.js # On-device photo analysis + care rules
 │       ├── plants-data.js  # 55 plant records
