@@ -56,7 +56,7 @@ body.jungle-home a { color: var(--brand-ink); }
 
 /* ---------- Centered panel ---------- */
 .jungle-home .jungle-hero { padding-block: clamp(1.25rem, 4vw, 3rem); }
-.jungle-home .jungle-wrap { max-width: 1020px; }
+.jungle-home .jungle-wrap { max-width: min(1320px, 96vw); }
 
 .jungle-panel {
   overflow: hidden;
@@ -103,13 +103,13 @@ body.jungle-home a { color: var(--brand-ink); }
   color: #e6f5f1;
 }
 .jungle-home .jungle-header .brand__name span { color: #e6f5f1; }
-.jungle-home .jungle-header .nav { gap: .1rem; flex-wrap: wrap; justify-content: flex-end; }
+.jungle-home .jungle-header .nav { gap: .05rem; flex-wrap: nowrap; justify-content: flex-end; }
 .jungle-home .jungle-header .nav a {
   min-height: 34px;
-  padding: .35rem .55rem;
+  padding: .35rem .42rem;
   white-space: nowrap;
   border-radius: 999px;
-  font-size: .78rem;
+  font-size: .74rem;
   font-weight: 550;
   letter-spacing: .02em;
   color: #c6e0dd;
