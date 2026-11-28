@@ -1413,7 +1413,6 @@ window.PLANTS = [
     tip: "Exquisitely fragrant creamy flowers. Needs acidity, humidity and consistent moisture to set buds."
   }
 ];
-];
 
 /* Where each category is typically grown. Used by the "Where" filter. */
 (function () {

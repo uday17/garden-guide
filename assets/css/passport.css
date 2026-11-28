@@ -103,6 +103,7 @@
   grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .6rem; align-items: center;
   margin-top: .25rem;
 }
+.passport-form__actions .btn[hidden] { display: none !important; }
 .passport-hint { font-size: .8rem; color: var(--jg-muted); margin: 0; flex: 1 1 220px; }
 .passport-hint.is-error { color: #ffc4b3; }
 
