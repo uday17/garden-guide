@@ -96,9 +96,9 @@ body.jungle-home a { color: var(--brand-ink); }
 }
 .jungle-home .jungle-header .brand__name {
   font-family: var(--jg-serif);
-  font-size: .95rem;
+  font-size: .85rem;
   font-weight: 500;
-  letter-spacing: .26em;
+  letter-spacing: .18em;
   text-transform: uppercase;
   color: #e6f5f1;
 }
@@ -131,9 +131,9 @@ body.jungle-home a { color: var(--brand-ink); }
 .jungle-cta {
   display: inline-grid;
   place-items: center;
-  min-width: 52px;
-  height: 34px;
-  padding-inline: .8rem;
+  min-width: 38px;
+  height: 32px;
+  padding-inline: .5rem;
   border-radius: 999px;
   border: 1px solid rgba(230, 245, 241, .5);
   color: #eaf7f3;
